@@ -35,6 +35,18 @@ function parseCSV(text: string): Record<string, string>[] {
   return rows;
 }
 
+function inferDistrict(address: string): string {
+  const addr = address.toLowerCase();
+  const island = ['銅鑼灣', '中環', '灣仔', '北角', '鰂魚涌', '香港仔', '柴灣', '跑馬地', '天后', '西環', '上環', '堅尼地城', '炮台山', '太古', '西營盤', '薄扶林', '黃竹坑'];
+  const kowloon = ['旺角', '尖沙咀', '油麻地', '佐敦', '深水埗', '長沙灣', '荔枝角', '觀塘', '牛頭角', '九龍灣', '紅磡', '土瓜灣', '黃大仙', '鑽石山', '樂富', '慈雲山', '石硤尾', '太子', '大角咀', '啟德', '何文田', '彩虹', '秀茂坪', '藍田', '油塘'];
+  const nt = ['荃灣', '葵涌', '沙田', '大埔', '粉嶺', '上水', '屯門', '元朗', '天水圍', '馬鞍山', '將軍澳', '青衣', '東涌', '離島', '西貢', '太和', '火炭', '石門', '小瀝源', '圍', '朗屏', '錦上路', '大窩口', '荔景'];
+
+  for (const d of island) if (addr.includes(d)) return '港島';
+  for (const d of kowloon) if (addr.includes(d)) return '九龍';
+  for (const d of nt) if (addr.includes(d)) return '新界';
+  return '';
+}
+
 export function useStores() {
   const [stores, setStores] = useState<Store[]>(storesConfig.stores);
   const [loading, setLoading] = useState(Boolean(storesConfig.sheetUrl));
@@ -58,15 +70,19 @@ export function useStores() {
         const csvText = await response.text();
         const rows = parseCSV(csvText);
         const parsedStores: Store[] = rows
-          .filter((row) => row.name && row.address)
-          .map((row, index) => ({
-            id: Number(row.id) || index + 1,
-            name: row.name,
-            address: row.address,
-            phone: row.phone || '',
-            hours: row.hours || '',
-            district: row.district || '',
-          }));
+          .filter((row) => (row.name || row.名稱) && (row.address || row.地址))
+          .map((row, index) => {
+            const address = row.address || row.地址 || '';
+            const district = row.district || row.地區 || inferDistrict(address);
+            return {
+              id: Number(row.id || row.店鋪編號) || index + 1,
+              name: row.name || row.名稱 || '',
+              address,
+              phone: row.phone || row.電話 || '',
+              hours: row.hours || row.營業時間 || '',
+              district,
+            };
+          });
         setStores(parsedStores);
         setError(null);
       } catch (err) {

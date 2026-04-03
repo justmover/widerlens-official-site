@@ -435,8 +435,7 @@ export const storesConfig: StoresConfig = {
   subtitle: "遍佈香港各區，找到最近的門市",
   searchPlaceholder: "輸入地區或店名...",
   statsText: "60+ 合作門市，遍佈港島、九龍、新界",
-  // Example sheetUrl (replace with your own published CSV URL):
-  // sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv",
+  sheetUrl: "https://docs.google.com/spreadsheets/d/1IkbFAy9-6BY52AiyQbUO5bvKayj8NCV_bhJc4Fs3_t4/export?format=csv&gid=0",
   stores: [
     {
       id: 1,
