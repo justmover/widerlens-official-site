@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: cd app && bun run build
         env:
-          VITE_BASE_URL: ${{ steps.pages.outputs.base_path }}
+          VITE_BASE_URL: '/'  # Custom domain serves from root path
 
       - name: Add 404 fallback for SPA
         run: cp app/dist/index.html app/dist/404.html
