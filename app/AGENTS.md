@@ -2,9 +2,11 @@ This is a React 19 + TypeScript + Vite single-page website for WiderLens, a Hong
 
 ## Commands
 
-- `npm run dev` — start Vite dev server
-- `npm run build` — typecheck and build for production
-- `npm run lint` — run ESLint
+Use `bun` as the package manager (fallback to `npm` only if `bun` fails).
+
+- `bun run dev` — start Vite dev server
+- `bun run build` — typecheck and build for production
+- `bun run lint` — run ESLint
 
 ## Architecture
 
