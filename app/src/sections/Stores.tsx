@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { storesConfig } from '../config';
+import { useStores } from '../hooks/useStores';
 import { MapPin, Phone, Clock, Search, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,12 +12,14 @@ export function Stores() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('全部');
+  const { stores, loading, error } = useStores();
 
   if (!storesConfig.title) return null;
 
-  const districts = ['全部', '港島', '九龍', '新界'];
+  const allDistricts = Array.from(new Set(stores.map((s) => s.district)));
+  const districts = ['全部', ...allDistricts];
 
-  const filteredStores = storesConfig.stores.filter((store) => {
+  const filteredStores = stores.filter((store) => {
     const matchesSearch =
       store.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       store.address.toLowerCase().includes(searchTerm.toLowerCase());
@@ -46,7 +49,7 @@ export function Stores() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [stores]);
 
   return (
     <section
@@ -97,7 +100,21 @@ export function Stores() {
 
         {/* Store Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredStores.map((store) => (
+          {loading && (
+            <div className="md:col-span-2 lg:col-span-3 text-center py-12 text-gray-500">
+              <div className="w-8 h-8 border-2 border-[#0055A4] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <p>載入門市資料中...</p>
+            </div>
+          )}
+
+          {!loading && error && (
+            <div className="md:col-span-2 lg:col-span-3 text-center py-12 text-red-500">
+              <p>無法載入門市資料，請稍後再試</p>
+              <p className="text-sm mt-1 text-red-400">{error}</p>
+            </div>
+          )}
+
+          {!loading && filteredStores.map((store) => (
             <div
               key={store.id}
               className="group p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-transparent hover:border-[#0055A4]/20"

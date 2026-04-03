@@ -426,6 +426,8 @@ export interface StoresConfig {
   searchPlaceholder: string;
   statsText: string;
   stores: Store[];
+  /** Publish the sheet to web as CSV and paste the URL here */
+  sheetUrl?: string;
 }
 
 export const storesConfig: StoresConfig = {
@@ -433,6 +435,8 @@ export const storesConfig: StoresConfig = {
   subtitle: "遍佈香港各區，找到最近的門市",
   searchPlaceholder: "輸入地區或店名...",
   statsText: "60+ 合作門市，遍佈港島、九龍、新界",
+  // Example sheetUrl (replace with your own published CSV URL):
+  // sheetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv",
   stores: [
     {
       id: 1,
