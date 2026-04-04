@@ -206,6 +206,19 @@ export function IntroGrid() {
           ))}
         </div>
 
+        {/* Embedded Product Video */}
+        <div className="mt-16 md:mt-24">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/-kQfkSDb5XI"
+              title="WiderLens Product Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
         {/* Floating accent text */}
         {introGridConfig.accentText && (
           <div className="mt-12 md:mt-16 flex justify-end">
