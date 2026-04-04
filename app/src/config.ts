@@ -373,7 +373,6 @@ export const footerConfig: FooterConfig = {
   socialLabel: "關注我們",
   socialLinks: [
     { iconName: "Facebook", href: "https://www.facebook.com/widerlens.hk", label: "Facebook" },
-    { iconName: "Instagram", href: "#", label: "Instagram" },
     { iconName: "Youtube", href: "https://www.youtube.com/@WiderLensHK", label: "YouTube" },
     { iconName: "Mail", href: "mailto:info@wider-lens.com", label: "Email" },
   ],

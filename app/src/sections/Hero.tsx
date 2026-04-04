@@ -147,7 +147,7 @@ export function Hero() {
                 </a>
               ))}
               <a
-                href="https://wa.me/85284332216"
+                href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 bg-[#E30613] text-white text-sm font-semibold rounded-full hover:bg-[#c20510] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30"
@@ -200,7 +200,7 @@ export function Hero() {
                 </a>
               ))}
               <a
-                href="https://wa.me/85284332216"
+                href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-8 py-3 bg-[#E30613] text-white font-semibold rounded-full mt-4"

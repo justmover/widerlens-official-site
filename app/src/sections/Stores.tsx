@@ -142,7 +142,9 @@ export function Stores() {
               </div>
 
               <a
-                href={`https://wa.me/852${store.phone.replace(/\s/g, '')}`}
+                href={`https://wa.me/85284332216?text=${encodeURIComponent(`我想到 ${store.name} 了解 Wider 產品優惠。`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#0055A4] text-white rounded-xl hover:bg-[#004a8c] transition-colors duration-300"
               >
                 <ExternalLink className="w-4 h-4" />

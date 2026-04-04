@@ -44,7 +44,7 @@ function inferDistrict(address: string): string {
   for (const d of island) if (addr.includes(d)) return '港島';
   for (const d of kowloon) if (addr.includes(d)) return '九龍';
   for (const d of nt) if (addr.includes(d)) return '新界';
-  return '';
+  return '其他地區';
 }
 
 export function useStores() {

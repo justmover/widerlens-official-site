@@ -26,10 +26,13 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
+    const text = `你好，我想查詢WiderLens產品優惠。\n\n姓名：${formData.name}\n電話：${formData.phone}\n電郵：${formData.email || '未提供'}\n查詢類型：${formData.inquiryType || '未選擇'}\n訊息：${formData.message || '未填寫'}`;
+    const whatsappNumber = contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '');
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, '_blank');
+
     setIsSubmitting(false);
     setSubmitted(true);
     setFormData({ name: '', phone: '', email: '', inquiryType: '', message: '' });
@@ -79,7 +82,9 @@ export function Contact() {
           <div className="lg:col-span-2 space-y-8">
             <div className="space-y-6">
               <a
-                href={`https://wa.me/${contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}`}
+                href={`https://wa.me/${contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group"
               >
                 <div className="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -120,7 +125,9 @@ export function Contact() {
               <h3 className="text-xl font-bold mb-3">需要即時協助？</h3>
               <p className="text-white/80 mb-4">透過 WhatsApp 與我們聯繫，獲得即時回覆</p>
               <a
-                href={`https://wa.me/${contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}`}
+                href={`https://wa.me/${contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0055A4] font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-300"
               >
                 <MessageCircle className="w-5 h-5" />

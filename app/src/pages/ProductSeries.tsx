@@ -285,7 +285,7 @@ export function ProductSeries() {
               </div>
 
               <a
-                href="https://wa.me/85284332216"
+                href={`https://wa.me/85284332216?text=${encodeURIComponent(`你好，我想查詢${activeProduct.name}產品優惠。`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all"
@@ -492,7 +492,7 @@ export function ProductSeries() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/85284332216"
+              href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0055A4] font-semibold rounded-xl hover:bg-gray-100 transition-all"
