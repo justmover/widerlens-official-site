@@ -5,28 +5,14 @@ import { introGridConfig } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Per-image animation config: unique direction, rotation, parallax depth, stagger order
-const imageAnimConfigs = [
-  // img0: tall left — sweeps in from the left
-  { clipFrom: 'inset(0% 100% 0% 0%)', rotation: -2, parallax: [-6, 6], delay: 0 },
-  // img1: top center — drops in from above
-  { clipFrom: 'inset(0% 0% 100% 0%)', rotation: 1.5, parallax: [-3, 3], delay: 0.12 },
-  // img2: top right — slides in from the right
-  { clipFrom: 'inset(0% 0% 0% 100%)', rotation: -1.2, parallax: [-5, 5], delay: 0.08 },
-  // img3: tall center — rises from below
-  { clipFrom: 'inset(100% 0% 0% 0%)', rotation: 1, parallax: [-4, 4], delay: 0.22 },
-  // img4: bottom right — slides in from the right
-  { clipFrom: 'inset(0% 0% 0% 100%)', rotation: -1.5, parallax: [-7, 7], delay: 0.18 },
-];
-
 export function IntroGrid() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleLine1Ref = useRef<HTMLDivElement>(null);
   const titleLine2Ref = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
 
-  if (!introGridConfig.titleLine1 && !introGridConfig.titleLine2 && introGridConfig.portfolioImages.length === 0) return null;
+  if (!introGridConfig.titleLine1 && !introGridConfig.titleLine2) return null;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -65,71 +51,19 @@ export function IntroGrid() {
         once: true,
       });
 
-      // ── Grid images: per-image directional reveal + rotation + scale + parallax ──
-      const gridItems = gridRef.current?.querySelectorAll('.grid-item');
-      if (gridItems) {
-        gridItems.forEach((item, i) => {
-          const img = item.querySelector('img');
-          const cfg = imageAnimConfigs[i];
-          if (!cfg) return;
-
-          // One-shot reveal on scroll-enter
-          ScrollTrigger.create({
-            trigger: item,
-            start: 'top 90%',
-            onEnter: () => {
-              // Unhide (Tailwind opacity-0 used as pre-GSAP fallback)
-              gsap.set(item, { opacity: 1 });
-
-              // Clip-path directional reveal
-              gsap.fromTo(
-                item,
-                { clipPath: cfg.clipFrom },
-                {
-                  clipPath: 'inset(0% 0% 0% 0%)',
-                  duration: 1.3,
-                  ease: 'power4.inOut',
-                  delay: cfg.delay,
-                }
-              );
-
-              if (img) {
-                // Scale zoom-out (Ken Burns)
-                gsap.fromTo(
-                  img,
-                  { scale: 1.45, rotate: cfg.rotation },
-                  {
-                    scale: 1.12,
-                    rotate: 0,
-                    duration: 1.8,
-                    ease: 'power3.out',
-                    delay: cfg.delay,
-                  }
-                );
-              }
-            },
-            once: true,
-          });
-
-          // Continuous parallax (varied depth per image → layered 3D feel)
-          if (img) {
-            gsap.fromTo(
-              img,
-              { yPercent: cfg.parallax[0] },
-              {
-                yPercent: cfg.parallax[1],
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: item,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: 1.2,
-                },
-              }
-            );
-          }
-        });
-      }
+      // ── Video: fade up ──
+      ScrollTrigger.create({
+        trigger: videoRef.current,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.fromTo(
+            videoRef.current,
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 }
+          );
+        },
+        once: true,
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -175,39 +109,8 @@ export function IntroGrid() {
           </p>
         </div>
 
-        {/* ── Masonry Grid ── */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]"
-        >
-          {introGridConfig.portfolioImages.map((image, index) => (
-            <div
-              key={index}
-              className={`grid-item relative overflow-hidden rounded-lg group cursor-pointer opacity-0 ${
-                index === 0 ? 'md:col-span-1 md:row-span-2' : ''
-              } ${index === 3 ? 'row-span-2' : ''}`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover will-change-transform"
-                loading="lazy"
-              />
-
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
-
-              {/* Viewfinder corners on hover */}
-              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white/0 group-hover:border-white/80 transition-all duration-500" />
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-white/0 group-hover:border-white/80 transition-all duration-500" />
-              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-white/0 group-hover:border-white/80 transition-all duration-500" />
-              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white/0 group-hover:border-white/80 transition-all duration-500" />
-            </div>
-          ))}
-        </div>
-
         {/* Embedded Product Video */}
-        <div className="mt-16 md:mt-24">
+        <div ref={videoRef} className="opacity-0">
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
             <iframe
               className="absolute inset-0 w-full h-full"

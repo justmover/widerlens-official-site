@@ -117,14 +117,11 @@ export function Testimonials() {
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#355C7D]/10 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-500">
+                    <span className="text-[#355C7D] group-hover:text-white font-sans font-semibold text-sm transition-colors duration-500">
+                      {testimonial.name.charAt(0)}
+                    </span>
                   </div>
                   <div>
                     <p className="font-sans font-semibold text-softblack group-hover:text-white transition-colors duration-500">

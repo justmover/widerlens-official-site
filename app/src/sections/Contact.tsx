@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { contactConfig } from '../config';
-import { Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { Mail, Send, MessageCircle } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,16 +108,6 @@ export function Contact() {
                   <p className="text-xl font-semibold text-gray-900">{contactConfig.email}</p>
                 </div>
               </a>
-
-              <div className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-sm">
-                <div className="w-14 h-14 bg-[#F8B195] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">營業時間</p>
-                  <p className="text-xl font-semibold text-gray-900">{contactConfig.hours}</p>
-                </div>
-              </div>
             </div>
 
             {/* Quick CTA */}

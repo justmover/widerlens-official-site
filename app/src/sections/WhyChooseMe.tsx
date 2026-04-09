@@ -1,65 +1,90 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { whyChooseMeConfig } from '../config';
+import { Sun, Shield, Layers, Sparkles, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface CounterProps {
-  end: number;
-  suffix?: string;
-  duration?: number;
-  shouldAnimate: boolean;
+interface ProductItem {
+  id: string;
+  name: string;
+  nameEn?: string;
+  description?: string;
 }
 
-function Counter({ end, suffix = '', duration = 2, shouldAnimate }: CounterProps) {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(0);
-
-  useEffect(() => {
-    if (!shouldAnimate) return;
-
-    const startTime = Date.now();
-    const endTime = startTime + duration * 1000;
-
-    const updateCount = () => {
-      const now = Date.now();
-      const progress = Math.min((now - startTime) / (duration * 1000), 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const newCount = Math.floor(easeProgress * end);
-
-      if (newCount !== countRef.current) {
-        countRef.current = newCount;
-        setCount(newCount);
-      }
-
-      if (now < endTime) {
-        requestAnimationFrame(updateCount);
-      } else {
-        setCount(end);
-      }
-    };
-
-    requestAnimationFrame(updateCount);
-  }, [end, duration, shouldAnimate]);
-
-  return (
-    <span>
-      {count}
-      {suffix}
-    </span>
-  );
+interface ProductCategory {
+  id: string;
+  title: string;
+  titleEn: string;
+  icon: React.ReactNode;
+  items: ProductItem[];
+  description?: string;
 }
+
+const productHierarchy: ProductCategory[] = [
+  {
+    id: 'progressive',
+    title: '漸進鏡片',
+    titleEn: 'Progressive Lenses',
+    icon: <Layers className="w-6 h-6" />,
+    description: '多焦點漸進設計，遠中近一鏡搞定',
+    items: [
+      {
+        id: '4k-hd',
+        name: '4K 數碼漸進 - 高清系列',
+        nameEn: '4K Digital Progressive - HD Series',
+        description: '高清晰度、廣闊視野、低變形。採用德國 OptoTech 漸進設計技術，視野更闊更自然。',
+      },
+      {
+        id: '3d-soft',
+        name: '3D 數碼漸進 - 柔和平衡系列',
+        nameEn: '3D Digital Progressive - Soft & Balance Series',
+        description: '先進 3D 光學計算，全客製化設計。配合 LRC 低反光鍍膜，夜間駕駛及看屏幕更舒適。',
+      },
+      {
+        id: 'wpal',
+        name: 'W-Pal 日本漸進',
+        nameEn: 'W-Pal Japanese Progressive',
+        description: '雙面複合設計，承襲日本鏡片設計著重細膩舒適的特色，自然柔和的度數過渡。',
+      },
+    ],
+  },
+  {
+    id: 'photochromic',
+    title: '變色鏡片',
+    titleEn: 'Photochromic Lenses',
+    icon: <Sun className="w-6 h-6" />,
+    description: '智能感光變色，室內室外無縫切換',
+    items: [
+      {
+        id: '3d-photo',
+        name: '3D 變色鏡片',
+        nameEn: '3D Photochromic Lenses',
+        description: '採用 3D 自由曲面漸進技術，結合智能變色功能。提供 Grey、Brown、Green、Pink、Purple、Blue 多種時尚色系選擇，配合 PHOTOCHANGE LRC 鍍膜，日夜切換無縫適應。',
+      },
+    ],
+  },
+  {
+    id: 'filter',
+    title: '濾光技術',
+    titleEn: 'Filter Technology',
+    icon: <Shield className="w-6 h-6" />,
+    description: '專業濾光防護，呵護雙眼健康',
+    items: [
+      {
+        id: 'uv-plus',
+        name: 'UV PLUS 濾藍光鏡片',
+        nameEn: 'UV PLUS Blue Light Filtering Lenses',
+        description: '極致美學體驗，表面不帶明顯藍色反光，同時清透不泛黃，展現美觀自然的視覺效果。有效過濾有害藍光，保護眼睛健康。',
+      },
+    ],
+  },
+];
 
 export function WhyChooseMe() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const wideRef = useRef<HTMLDivElement>(null);
-  const [shouldAnimateStats, setShouldAnimateStats] = useState(false);
-
-  if (!whyChooseMeConfig.titleRegular && whyChooseMeConfig.stats.length === 0 && whyChooseMeConfig.featureCards.length === 0) return null;
+  const categoriesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -77,147 +102,53 @@ export function WhyChooseMe() {
         once: true,
       });
 
-      // Feature cards with images — clip-path reveal + inner scale
-      const imageCards = cardsRef.current?.querySelectorAll('.feature-card-image');
-      if (imageCards) {
-        imageCards.forEach((card, i) => {
-          const img = card.querySelector('img');
-
+      // Category cards — staggered reveal
+      const cards = categoriesRef.current?.querySelectorAll('.category-card');
+      if (cards) {
+        cards.forEach((card, i) => {
           ScrollTrigger.create({
             trigger: card,
             start: 'top 85%',
             onEnter: () => {
-              gsap.set(card, { opacity: 1 });
               gsap.fromTo(
                 card,
-                { clipPath: 'inset(100% 0 0 0)' },
+                { y: 60, opacity: 0 },
                 {
-                  clipPath: 'inset(0% 0% 0% 0%)',
-                  duration: 1.2,
-                  ease: 'power4.inOut',
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: 'power3.out',
                   delay: i * 0.15,
                 }
               );
-              if (img) {
-                gsap.fromTo(
-                  img,
-                  { scale: 1.35 },
-                  { scale: 1.1, duration: 1.6, ease: 'power3.out', delay: i * 0.15 }
-                );
-              }
             },
             once: true,
           });
-
-          // Parallax on card images
-          if (img) {
-            gsap.fromTo(
-              img,
-              { yPercent: -4 },
-              {
-                yPercent: 4,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: card,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: 1.5,
-                },
-              }
-            );
-          }
         });
       }
 
-      // Stats card — slide up + fade
-      const statsCard = cardsRef.current?.querySelector('.feature-card-stats');
-      if (statsCard) {
-        ScrollTrigger.create({
-          trigger: statsCard,
-          start: 'top 85%',
-          onEnter: () => {
-            gsap.fromTo(
-              statsCard,
-              { y: 80, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.3 }
-            );
-          },
-          once: true,
-        });
-      }
-
-      // Stats counter trigger
-      ScrollTrigger.create({
-        trigger: statsRef.current,
-        start: 'top 75%',
-        onEnter: () => {
-          setShouldAnimateStats(true);
-        },
-        once: true,
-      });
-
-      // Wide landscape — clip-path expand from center + inner scale + parallax
-      const wideWrap = wideRef.current;
-      const wideImg = wideWrap?.querySelector('img');
-      if (wideWrap) {
-        ScrollTrigger.create({
-          trigger: wideWrap,
-          start: 'top 82%',
-          onEnter: () => {
-            gsap.set(wideWrap, { opacity: 1 });
-            gsap.fromTo(
-              wideWrap,
-              { clipPath: 'inset(15% 5% 15% 5%)' },
-              {
-                clipPath: 'inset(0% 0% 0% 0%)',
-                duration: 1.4,
-                ease: 'power4.inOut',
-              }
-            );
-            if (wideImg) {
+      // Product items — staggered reveal
+      const items = categoriesRef.current?.querySelectorAll('.product-item');
+      if (items) {
+        items.forEach((item, i) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 90%',
+            onEnter: () => {
               gsap.fromTo(
-                wideImg,
-                { scale: 1.25 },
-                { scale: 1.08, duration: 1.8, ease: 'power3.out' }
+                item,
+                { x: -20, opacity: 0 },
+                {
+                  x: 0,
+                  opacity: 1,
+                  duration: 0.6,
+                  ease: 'power3.out',
+                  delay: (i % 3) * 0.1,
+                }
               );
-            }
-          },
-          once: true,
-        });
-
-        // Wide image parallax
-        if (wideImg) {
-          gsap.fromTo(
-            wideImg,
-            { yPercent: -3 },
-            {
-              yPercent: 3,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: wideWrap,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1.5,
-              },
-            }
-          );
-        }
-      }
-
-      // Text overlay on wide image — fade up
-      const wideText = wideWrap?.querySelector('.wide-text-overlay');
-      if (wideText) {
-        ScrollTrigger.create({
-          trigger: wideWrap,
-          start: 'top 70%',
-          onEnter: () => {
-            gsap.fromTo(
-              wideText,
-              { y: 30, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.6 }
-            );
-          },
-          once: true,
+            },
+            once: true,
+          });
         });
       }
     }, sectionRef);
@@ -228,108 +159,98 @@ export function WhyChooseMe() {
   return (
     <section
       ref={sectionRef}
-      id="about"
-      className="relative w-full py-24 md:py-32 bg-white"
+      id="advantages"
+      className="relative w-full py-24 md:py-32 bg-gradient-to-b from-white to-gray-50/50"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16 md:mb-20 opacity-0">
-          {whyChooseMeConfig.subtitle && (
-            <p className="text-gray-500 text-sm font-body uppercase tracking-widest mb-4">
-              {whyChooseMeConfig.subtitle}
-            </p>
-          )}
+          <p className="text-gray-500 text-sm font-body uppercase tracking-widest mb-4">
+            產品系列
+          </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-gray-900 tracking-tight">
-            {whyChooseMeConfig.titleRegular} <span className="font-serif italic font-normal text-[#355C7D]">{whyChooseMeConfig.titleItalic}</span>
+            專業鏡片 <span className="font-serif italic font-normal text-[#355C7D]">產品架構</span>
           </h2>
+          <p className="mt-4 text-gray-600 font-body max-w-2xl mx-auto">
+            為您的視覺需求，提供全方位保護。從漸進多焦點鏡片到光致變色鏡片，我們致力於讓每一位客戶都能享受清晰舒適的視覺體驗。
+          </p>
         </div>
 
-        {/* Three Cards Row */}
-        <div ref={cardsRef} className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {/* Feature Cards with Images */}
-          {whyChooseMeConfig.featureCards.map((card, index) => (
-            <div key={index} className="feature-card-image opacity-0 group">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-900">
-                <img
-                  src={card.image}
-                  alt={card.imageAlt}
-                  className="w-full h-full object-cover will-change-transform"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-white/90 font-sans font-semibold text-lg mb-2">
-                    {card.title}
-                  </p>
-                  <p className="text-white/60 font-body text-sm">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-
-          {/* Stats Card */}
-          {whyChooseMeConfig.stats.length > 0 && (
+        {/* Product Categories */}
+        <div ref={categoriesRef} className="space-y-8">
+          {productHierarchy.map((category) => (
             <div
-              ref={statsRef}
-              className="feature-card-stats opacity-0 bg-gray-50 rounded-lg p-8 md:p-10 flex flex-col justify-between"
+              key={category.id}
+              className="category-card opacity-0 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
-              <div>
-                {whyChooseMeConfig.statsLabel && (
-                  <p className="text-gray-500 text-sm font-body uppercase tracking-widest mb-8">
-                    {whyChooseMeConfig.statsLabel}
+              {/* Category Header */}
+              <div className="bg-gradient-to-r from-[#355C7D] to-[#4a7a9e] px-6 py-5 md:px-8 md:py-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                    {category.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-sans font-bold text-white">
+                      {category.title}
+                    </h3>
+                    <p className="text-white/70 text-sm font-body">
+                      {category.titleEn}
+                    </p>
+                  </div>
+                </div>
+                {category.description && (
+                  <p className="mt-3 text-white/80 text-sm md:text-base font-body max-w-2xl">
+                    {category.description}
                   </p>
                 )}
-                <div className="space-y-8">
-                  {whyChooseMeConfig.stats.map((stat, index) => (
-                    <div key={index} className="border-b border-gray-200 pb-6 last:border-0">
-                      <p className="text-4xl md:text-5xl font-sans font-bold text-[#355C7D] tracking-tight">
-                        <Counter
-                          end={stat.value}
-                          suffix={stat.suffix}
-                          shouldAnimate={shouldAnimateStats}
-                        />
-                      </p>
-                      <p className="text-gray-500 font-body text-sm mt-1">
-                        {stat.label}
-                      </p>
+              </div>
+
+              {/* Product Items */}
+              <div className="p-6 md:p-8">
+                <div className="grid gap-4">
+                  {category.items.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className="product-item opacity-0 group relative bg-gray-50 rounded-xl p-5 md:p-6 hover:bg-gray-100 transition-colors duration-300"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#355C7D]/10 flex items-center justify-center text-[#355C7D] font-sans font-bold text-sm">
+                          {index + 1}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-lg md:text-xl font-sans font-semibold text-gray-900 group-hover:text-[#355C7D] transition-colors">
+                            {item.name}
+                          </h4>
+                          {item.nameEn && (
+                            <p className="text-gray-500 text-sm font-body mt-0.5">
+                              {item.nameEn}
+                            </p>
+                          )}
+                          {item.description && (
+                            <p className="mt-3 text-gray-600 text-sm md:text-base font-body leading-relaxed">
+                              {item.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ChevronRight className="w-5 h-5 text-[#355C7D]" />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          )}
+          ))}
         </div>
 
-        {/* Wide Landscape Image */}
-        {whyChooseMeConfig.wideImage && (
-          <div ref={wideRef} className="mt-16 md:mt-24 relative rounded-lg overflow-hidden group opacity-0">
-            <div className="aspect-[21/9] md:aspect-[3/1] overflow-hidden">
-              <img
-                src={whyChooseMeConfig.wideImage}
-                alt={whyChooseMeConfig.wideImageAlt}
-                className="w-full h-full object-cover will-change-transform"
-                loading="lazy"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 via-transparent to-transparent" />
-            {(whyChooseMeConfig.wideTitle || whyChooseMeConfig.wideDescription) && (
-              <div className="wide-text-overlay absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-md opacity-0">
-                {whyChooseMeConfig.wideTitle && (
-                  <p className="text-white/90 font-sans font-bold text-2xl md:text-3xl mb-3">
-                    {whyChooseMeConfig.wideTitle}
-                  </p>
-                )}
-                {whyChooseMeConfig.wideDescription && (
-                  <p className="text-white/70 font-body text-sm md:text-base">
-                    {whyChooseMeConfig.wideDescription}
-                  </p>
-                )}
-              </div>
-            )}
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 text-[#355C7D] font-body text-sm">
+            <Sparkles className="w-4 h-4" />
+            <span>專業品質 · 值得信賴</span>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
