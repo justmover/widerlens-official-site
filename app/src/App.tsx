@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useLenis } from './hooks/useLenis';
 import { Hero } from './sections/Hero';
 import { IntroGrid } from './sections/IntroGrid';
-import { Services } from './sections/Services';
-import { WhyChooseMe } from './sections/WhyChooseMe';
 import { FeaturedProjects } from './sections/FeaturedProjects';
 import { Testimonials } from './sections/Testimonials';
 import { Promotion } from './sections/Promotion';
