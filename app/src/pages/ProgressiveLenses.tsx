@@ -61,7 +61,7 @@ export function ProgressiveLenses() {
           </a>
           <a 
             href="/" 
-            className="flex items-center gap-2 text-gray-600 hover:text-[#0055A4] transition-colors"
+            className="flex items-center gap-2 text-gray-600 hover:text-[#355C7D] transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>返回首頁</span>
@@ -74,7 +74,7 @@ export function ProgressiveLenses() {
         ref={(el) => addToRefs(el, 0)}
         className="pt-32 pb-20 lg:pt-40 lg:pb-28"
         style={{
-          background: 'linear-gradient(135deg, #0055A4 0%, #00A0E9 100%)',
+          background: 'linear-gradient(135deg, #355C7D 0%, #F8B195 100%)',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -101,8 +101,8 @@ export function ProgressiveLenses() {
                 產品介紹
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                WiderLens 漸進鏡片採用先進的<span className="text-[#0055A4] font-semibold">雙眼平衡技術</span>與
-                <span className="text-[#0055A4] font-semibold">個性化自由曲面設計</span>，
+                WiderLens 漸進鏡片採用先進的<span className="text-[#355C7D] font-semibold">雙眼平衡技術</span>與
+                <span className="text-[#355C7D] font-semibold">個性化自由曲面設計</span>，
                 讓鏡片表面沒有明顯的分界線，提供遠、中、近距離無縫過渡的視覺體驗。
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -168,8 +168,8 @@ export function ProgressiveLenses() {
                 key={index} 
                 className="animate-in bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow"
               >
-                <div className="w-14 h-14 bg-[#0055A4]/10 rounded-xl flex items-center justify-center mb-6">
-                  <feature.icon className="w-7 h-7 text-[#0055A4]" />
+                <div className="w-14 h-14 bg-[#355C7D]/10 rounded-xl flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-[#355C7D]" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
@@ -190,7 +190,7 @@ export function ProgressiveLenses() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="animate-in bg-gradient-to-br from-[#0055A4] to-[#00A0E9] rounded-2xl p-6 text-white">
+            <div className="animate-in bg-gradient-to-br from-[#355C7D] to-[#F8B195] rounded-2xl p-6 text-white">
               <h3 className="text-lg font-semibold mb-4">可用折射率</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export function ProgressiveLenses() {
                   { name: '高折射率樹脂', desc: '更輕更薄，高度數首選' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-                    <Droplets className="w-6 h-6 text-[#0055A4] flex-shrink-0 mt-1" />
+                    <Droplets className="w-6 h-6 text-[#355C7D] flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">{item.name}</p>
                       <p className="text-sm text-gray-600">{item.desc}</p>
@@ -282,7 +282,7 @@ export function ProgressiveLenses() {
                   { name: '防藍光鍍膜', desc: '減少數位眼疲勞' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-                    <Sun className="w-6 h-6 text-[#0055A4] flex-shrink-0 mt-1" />
+                    <Sun className="w-6 h-6 text-[#355C7D] flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">{item.name}</p>
                       <p className="text-sm text-gray-600">{item.desc}</p>
@@ -312,8 +312,8 @@ export function ProgressiveLenses() {
               { icon: Zap, title: '變色功能', desc: '可結合光致變色技術' },
             ].map((item, index) => (
               <div key={index} className="animate-in text-center p-6">
-                <div className="w-16 h-16 bg-[#0055A4]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-[#0055A4]" />
+                <div className="w-16 h-16 bg-[#355C7D]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-[#355C7D]" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
@@ -357,7 +357,7 @@ export function ProgressiveLenses() {
                   '數位生活優化',
                   '1.60/1.67 折射率',
                 ],
-                color: 'bg-[#0055A4]',
+                color: 'bg-[#355C7D]',
                 recommended: true,
               },
               {
@@ -370,15 +370,15 @@ export function ProgressiveLenses() {
                   '最大視野區域',
                   '1.67/1.74 折射率',
                 ],
-                color: 'bg-gradient-to-br from-[#0055A4] to-[#00A0E9]',
+                color: 'bg-gradient-to-br from-[#355C7D] to-[#F8B195]',
               },
             ].map((series, index) => (
               <div 
                 key={index} 
-                className={`animate-in rounded-2xl p-8 ${series.color} relative ${series.recommended ? 'ring-4 ring-[#E30613]' : ''}`}
+                className={`animate-in rounded-2xl p-8 ${series.color} relative ${series.recommended ? 'ring-4 ring-[#C06C84]' : ''}`}
               >
                 {series.recommended && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#E30613] rounded-full text-sm font-semibold">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#C06C84] rounded-full text-sm font-semibold">
                     推薦選擇
                   </div>
                 )}
@@ -416,8 +416,8 @@ export function ProgressiveLenses() {
               { title: '戶外活動者', desc: '多種距離活動需求' },
             ].map((item, index) => (
               <div key={index} className="animate-in bg-gray-50 rounded-2xl p-6 text-center">
-                <div className="w-12 h-12 bg-[#0055A4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Eye className="w-6 h-6 text-[#0055A4]" />
+                <div className="w-12 h-12 bg-[#355C7D]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Eye className="w-6 h-6 text-[#355C7D]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
@@ -428,7 +428,7 @@ export function ProgressiveLenses() {
       </section>
 
       {/* Warranty */}
-      <section ref={(el) => addToRefs(el, 8)} className="py-20 lg:py-28 bg-[#0055A4]">
+      <section ref={(el) => addToRefs(el, 8)} className="py-20 lg:py-28 bg-[#355C7D]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <div className="animate-in text-white">
             <Shield className="w-16 h-16 mx-auto mb-6" />
@@ -462,13 +462,13 @@ export function ProgressiveLenses() {
               href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢漸進鏡片產品優惠。')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"
             >
               WhatsApp 查詢
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0055A4] text-[#0055A4] font-semibold rounded-xl hover:bg-[#0055A4] hover:text-white transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#355C7D] text-[#355C7D] font-semibold rounded-xl hover:bg-[#355C7D] hover:text-white transition-all"
             >
               返回首頁
             </a>

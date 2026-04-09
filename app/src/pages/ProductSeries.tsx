@@ -199,7 +199,7 @@ export function ProductSeries() {
           </a>
           <a 
             href="/" 
-            className="flex items-center gap-2 text-gray-600 hover:text-[#0055A4] transition-colors"
+            className="flex items-center gap-2 text-gray-600 hover:text-[#355C7D] transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>返回首頁</span>
@@ -212,7 +212,7 @@ export function ProductSeries() {
         ref={heroRef}
         className="pt-32 pb-20 lg:pt-40 lg:pb-28"
         style={{
-          background: 'linear-gradient(135deg, #0055A4 0%, #00A0E9 100%)',
+          background: 'linear-gradient(135deg, #355C7D 0%, #F8B195 100%)',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -236,7 +236,7 @@ export function ProductSeries() {
                 onClick={() => setActiveTab(product.id)}
                 className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 ${
                   activeTab === product.id
-                    ? 'bg-white text-[#0055A4] shadow-lg'
+                    ? 'bg-white text-[#355C7D] shadow-lg'
                     : 'bg-white/20 text-white hover:bg-white/30'
                 }`}
               >
@@ -266,7 +266,7 @@ export function ProductSeries() {
 
             {/* Content */}
             <div>
-              <p className="text-[#0055A4] font-semibold mb-2">{activeProduct.tagline}</p>
+              <p className="text-[#355C7D] font-semibold mb-2">{activeProduct.tagline}</p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 {activeProduct.name}
               </h2>
@@ -278,7 +278,7 @@ export function ProductSeries() {
               <div className="space-y-3 mb-8">
                 {activeProduct.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#0055A4] flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
@@ -288,7 +288,7 @@ export function ProductSeries() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent(`你好，我想查詢${activeProduct.name}產品優惠。`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"
               >
                 查詢此產品
               </a>
@@ -413,7 +413,7 @@ export function ProductSeries() {
               >
                 <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${
                   product.id === activeProduct.id
-                    ? 'bg-[#0055A4] text-white'
+                    ? 'bg-[#355C7D] text-white'
                     : 'bg-white/20'
                 }`}>
                   {product.subtitle}
@@ -434,7 +434,7 @@ export function ProductSeries() {
                   onClick={() => setActiveTab(product.id)}
                   className={`w-full py-3 rounded-xl font-semibold transition-all ${
                     product.id === activeProduct.id
-                      ? 'bg-[#0055A4] text-white'
+                      ? 'bg-[#355C7D] text-white'
                       : 'bg-white/20 hover:bg-white/30'
                   }`}
                 >
@@ -482,7 +482,7 @@ export function ProductSeries() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-28 bg-gradient-to-r from-[#0055A4] to-[#00A0E9]">
+      <section className="py-20 lg:py-28 bg-gradient-to-r from-[#355C7D] to-[#F8B195]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             找到適合您的鏡片了嗎？
@@ -495,7 +495,7 @@ export function ProductSeries() {
               href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0055A4] font-semibold rounded-xl hover:bg-gray-100 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#355C7D] font-semibold rounded-xl hover:bg-gray-100 transition-all"
             >
               WhatsApp 查詢
             </a>

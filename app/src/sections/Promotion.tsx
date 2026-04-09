@@ -62,7 +62,7 @@ export function Promotion() {
       id="promotion"
       className="relative w-full py-24 lg:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #0055A4 0%, #00A0E9 100%)',
+        background: 'linear-gradient(135deg, #355C7D 0%, #F8B195 100%)',
       }}
     >
       {/* Animated background pattern */}
@@ -132,7 +132,7 @@ export function Promotion() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href={promotionConfig.ctaHref}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1"
               >
                 {promotionConfig.ctaText}
               </a>

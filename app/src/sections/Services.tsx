@@ -82,7 +82,7 @@ export function Services() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-tight">
               {servicesConfig.titleLine1}
               <br />
-              <span className="font-serif italic font-normal text-[#00A0E9]">
+              <span className="font-serif italic font-normal text-[#F8B195]">
                 {servicesConfig.titleLine2Italic}
               </span>
             </h2>
@@ -100,8 +100,8 @@ export function Services() {
               const CardContent = (
                 <>
                   <div className="mb-4">
-                    <div className="w-14 h-14 bg-[#0055A4]/20 rounded-xl flex items-center justify-center group-hover:bg-[#0055A4]/30 transition-colors duration-300">
-                      <Icon className="w-7 h-7 text-[#00A0E9] group-hover:text-[#00A0E9] transition-colors duration-300" strokeWidth={1.5} />
+                    <div className="w-14 h-14 bg-[#355C7D]/20 rounded-xl flex items-center justify-center group-hover:bg-[#355C7D]/30 transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-[#F8B195] group-hover:text-[#F8B195] transition-colors duration-300" strokeWidth={1.5} />
                     </div>
                   </div>
                   <h3 className="text-lg md:text-xl font-sans font-semibold text-white mb-3 group-hover:translate-x-1 transition-transform duration-300">
@@ -114,7 +114,7 @@ export function Services() {
                   {/* Arrow indicator */}
                   <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <svg
-                      className="w-5 h-5 text-[#00A0E9]"
+                      className="w-5 h-5 text-[#F8B195]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

@@ -93,7 +93,7 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #0055A4 0%, #003d7a 50%, #002a54 100%)',
+        background: 'linear-gradient(135deg, #355C7D 0%, #4A3B5A 50%, #2A3D52 100%)',
       }}
     >
       {/* Animated background pattern */}
@@ -109,7 +109,7 @@ export function Hero() {
 
       {/* Floating shapes */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-float" />
-      <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#00A0E9]/10 rounded-full blur-3xl animate-float-delayed" />
+      <div className="absolute bottom-40 right-20 w-48 h-48 bg-[#F8B195]/10 rounded-full blur-3xl animate-float-delayed" />
 
       {/* Layer 2: Big Background Text */}
       <div
@@ -150,7 +150,7 @@ export function Hero() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-[#C94C4C] text-white text-sm font-semibold rounded-full hover:bg-[#a63d3d] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20"
+                className="flex items-center gap-2 px-5 py-2.5 bg-[#C06C84] text-white text-sm font-semibold rounded-full hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20"
               >
                 <Phone className="w-4 h-4" />
                 WhatsApp 查詢
@@ -170,7 +170,7 @@ export function Hero() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div 
-            className="fixed inset-0 z-40 bg-[#0055A4] lg:hidden pt-20"
+            className="fixed inset-0 z-40 bg-[#355C7D] lg:hidden pt-20"
             data-mobile-menu="true"
             data-open={mobileMenuOpen}
           >
@@ -203,7 +203,7 @@ export function Hero() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-3 bg-[#C94C4C] text-white font-semibold rounded-full hover:bg-[#a63d3d] transition-all mt-4"
+                className="flex items-center gap-2 px-8 py-3 bg-[#C06C84] text-white font-semibold rounded-full hover:bg-[#A05068] transition-all mt-4"
               >
                 <Phone className="w-5 h-5" />
                 WhatsApp 查詢
@@ -226,7 +226,7 @@ export function Hero() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                   看得更廣，
                   <br />
-                  <span className="text-[#00A0E9]">生活更自在</span>
+                  <span className="text-[#F8B195]">生活更自在</span>
                 </h2>
 
                 <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
@@ -236,7 +236,7 @@ export function Hero() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="#promotion"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C94C4C] text-white font-semibold rounded-xl hover:bg-[#a63d3d] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-1"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-1"
                   >
                     立即領取優惠
                   </a>
@@ -273,7 +273,7 @@ export function Hero() {
                 >
                   <div className="relative w-[80%] md:w-[60%] lg:w-full max-w-[500px]">
                     {/* Glow effect behind image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#00A0E9]/30 to-transparent rounded-3xl blur-2xl transform scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#F8B195]/30 to-transparent rounded-3xl blur-2xl transform scale-110" />
                     <img
                       src={heroConfig.heroImage}
                       alt={heroConfig.heroImageAlt}

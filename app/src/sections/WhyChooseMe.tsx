@@ -240,7 +240,7 @@ export function WhyChooseMe() {
             </p>
           )}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-gray-900 tracking-tight">
-            {whyChooseMeConfig.titleRegular} <span className="font-serif italic font-normal text-[#0055A4]">{whyChooseMeConfig.titleItalic}</span>
+            {whyChooseMeConfig.titleRegular} <span className="font-serif italic font-normal text-[#355C7D]">{whyChooseMeConfig.titleItalic}</span>
           </h2>
         </div>
 
@@ -284,7 +284,7 @@ export function WhyChooseMe() {
                 <div className="space-y-8">
                   {whyChooseMeConfig.stats.map((stat, index) => (
                     <div key={index} className="border-b border-gray-200 pb-6 last:border-0">
-                      <p className="text-4xl md:text-5xl font-sans font-bold text-[#0055A4] tracking-tight">
+                      <p className="text-4xl md:text-5xl font-sans font-bold text-[#355C7D] tracking-tight">
                         <Counter
                           end={stat.value}
                           suffix={stat.suffix}

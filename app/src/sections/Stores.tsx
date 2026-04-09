@@ -64,7 +64,7 @@ export function Stores() {
             {storesConfig.title}
           </h2>
           <p className="text-lg text-gray-600">{storesConfig.subtitle}</p>
-          <p className="text-[#0055A4] font-semibold mt-2">{storesConfig.statsText}</p>
+          <p className="text-[#355C7D] font-semibold mt-2">{storesConfig.statsText}</p>
         </div>
 
         {/* Search & Filter */}
@@ -76,7 +76,7 @@ export function Stores() {
               placeholder={storesConfig.searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all"
             />
           </div>
 
@@ -88,7 +88,7 @@ export function Stores() {
                 onClick={() => setSelectedDistrict(district)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                   selectedDistrict === district
-                    ? 'bg-[#0055A4] text-white'
+                    ? 'bg-[#355C7D] text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
@@ -102,7 +102,7 @@ export function Stores() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {loading && (
             <div className="md:col-span-2 lg:col-span-3 text-center py-12 text-gray-500">
-              <div className="w-8 h-8 border-2 border-[#0055A4] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <div className="w-8 h-8 border-2 border-[#355C7D] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
               <p>載入門市資料中...</p>
             </div>
           )}
@@ -117,26 +117,26 @@ export function Stores() {
           {!loading && filteredStores.map((store) => (
             <div
               key={store.id}
-              className="group p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-transparent hover:border-[#0055A4]/20"
+              className="group p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-transparent hover:border-[#355C7D]/20"
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-bold text-gray-900">{store.name}</h3>
-                <span className="px-3 py-1 bg-[#0055A4]/10 text-[#0055A4] text-sm rounded-full">
+                <span className="px-3 py-1 bg-[#355C7D]/10 text-[#355C7D] text-sm rounded-full">
                   {store.district}
                 </span>
               </div>
 
               <div className="space-y-3 text-gray-600">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#0055A4] flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#355C7D] flex-shrink-0 mt-0.5" />
                   <span>{store.address}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#0055A4] flex-shrink-0" />
+                  <Phone className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
                   <span>{store.phone}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-[#0055A4] flex-shrink-0" />
+                  <Clock className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
                   <span>{store.hours}</span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export function Stores() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent(`我想到 ${store.name} 了解 Wider 產品優惠。`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#0055A4] text-white rounded-xl hover:bg-[#004a8c] transition-colors duration-300"
+                className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#355C7D] text-white rounded-xl hover:bg-[#2A4A63] transition-colors duration-300"
               >
                 <ExternalLink className="w-4 h-4" />
                 WhatsApp 查詢

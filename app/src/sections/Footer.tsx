@@ -85,7 +85,7 @@ export function Footer() {
               {footerConfig.email && (
                 <a
                   href={`mailto:${footerConfig.email}`}
-                  className="text-xl md:text-2xl font-sans font-semibold text-gray-900 hover:text-[#0055A4] transition-colors duration-300"
+                  className="text-xl md:text-2xl font-sans font-semibold text-gray-900 hover:text-[#355C7D] transition-colors duration-300"
                 >
                   {footerConfig.email}
                 </a>
@@ -110,7 +110,7 @@ export function Footer() {
                     <a
                       key={link.label}
                       href={link.href}
-                      className="block text-gray-600 hover:text-[#0055A4] font-body transition-colors duration-300"
+                      className="block text-gray-600 hover:text-[#355C7D] font-body transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -135,7 +135,7 @@ export function Footer() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 hover:bg-[#0055A4] hover:text-white transition-all duration-300 shadow-sm"
+                        className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-600 hover:bg-[#355C7D] hover:text-white transition-all duration-300 shadow-sm"
                       >
                         <Icon className="w-5 h-5" strokeWidth={1.5} />
                       </a>
@@ -159,7 +159,7 @@ export function Footer() {
             {footerConfig.bottomLinks.length > 0 && (
               <div className="flex items-center gap-6 text-gray-400 font-body text-sm">
                 {footerConfig.bottomLinks.map((link) => (
-                  <a key={link.label} href={link.href} className="hover:text-[#0055A4] transition-colors duration-300">
+                  <a key={link.label} href={link.href} className="hover:text-[#355C7D] transition-colors duration-300">
                     {link.label}
                   </a>
                 ))}

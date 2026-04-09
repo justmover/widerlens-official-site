@@ -62,7 +62,7 @@ export function PhotochromicLenses() {
           </a>
           <a 
             href="/" 
-            className="flex items-center gap-2 text-gray-600 hover:text-[#0055A4] transition-colors"
+            className="flex items-center gap-2 text-gray-600 hover:text-[#355C7D] transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>返回首頁</span>
@@ -75,7 +75,7 @@ export function PhotochromicLenses() {
         ref={(el) => addToRefs(el, 0)}
         className="pt-32 pb-20 lg:pt-40 lg:pb-28"
         style={{
-          background: 'linear-gradient(135deg, #00A0E9 0%, #0055A4 100%)',
+          background: 'linear-gradient(135deg, #F8B195 0%, #355C7D 100%)',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -109,8 +109,8 @@ export function PhotochromicLenses() {
                 產品介紹
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                WiderLens 變色鏡片採用先進的<span className="text-[#0055A4] font-semibold">快速反應染料技術</span>與
-                <span className="text-[#0055A4] font-semibold">穩定光適應技術</span>，
+                WiderLens 變色鏡片採用先進的<span className="text-[#355C7D] font-semibold">快速反應染料技術</span>與
+                <span className="text-[#355C7D] font-semibold">穩定光適應技術</span>，
                 能夠根據光線強度自動調整鏡片深淺。
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -179,8 +179,8 @@ export function PhotochromicLenses() {
                 key={index} 
                 className="animate-in bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow"
               >
-                <div className="w-14 h-14 bg-[#00A0E9]/10 rounded-xl flex items-center justify-center mb-6">
-                  <feature.icon className="w-7 h-7 text-[#00A0E9]" />
+                <div className="w-14 h-14 bg-[#F8B195]/10 rounded-xl flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-[#F8B195]" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
@@ -200,7 +200,7 @@ export function PhotochromicLenses() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="animate-in bg-gradient-to-br from-[#00A0E9] to-[#0055A4] rounded-2xl p-6 text-white">
+            <div className="animate-in bg-gradient-to-br from-[#F8B195] to-[#355C7D] rounded-2xl p-6 text-white">
               <Clock className="w-8 h-8 mb-4" />
               <h3 className="text-lg font-semibold mb-4">變色速度</h3>
               <ul className="space-y-2 text-sm">
@@ -211,7 +211,7 @@ export function PhotochromicLenses() {
             </div>
 
             <div className="animate-in bg-white border-2 border-gray-100 rounded-2xl p-6">
-              <Sun className="w-8 h-8 mb-4 text-[#00A0E9]" />
+              <Sun className="w-8 h-8 mb-4 text-[#F8B195]" />
               <h3 className="text-lg font-semibold text-gray-900 mb-4">透光率範圍</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>室內透光率：90%</li>
@@ -221,7 +221,7 @@ export function PhotochromicLenses() {
             </div>
 
             <div className="animate-in bg-white border-2 border-gray-100 rounded-2xl p-6">
-              <Eye className="w-8 h-8 mb-4 text-[#00A0E9]" />
+              <Eye className="w-8 h-8 mb-4 text-[#F8B195]" />
               <h3 className="text-lg font-semibold text-gray-900 mb-4">度數範圍</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>球鏡：+4.00D 至 -8.00D</li>
@@ -231,7 +231,7 @@ export function PhotochromicLenses() {
             </div>
 
             <div className="animate-in bg-white border-2 border-gray-100 rounded-2xl p-6">
-              <Car className="w-8 h-8 mb-4 text-[#00A0E9]" />
+              <Car className="w-8 h-8 mb-4 text-[#F8B195]" />
               <h3 className="text-lg font-semibold text-gray-900 mb-4">車內變色</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>高階系列支援</li>
@@ -263,7 +263,7 @@ export function PhotochromicLenses() {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">室內環境</h3>
                 <p className="text-gray-600">鏡片保持透明</p>
-                <p className="text-[#00A0E9] font-semibold mt-2">透光率 90%</p>
+                <p className="text-[#F8B195] font-semibold mt-2">透光率 90%</p>
               </div>
             </div>
 
@@ -276,7 +276,7 @@ export function PhotochromicLenses() {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">車內環境</h3>
                 <p className="text-gray-600">適度變暗（高階版）</p>
-                <p className="text-[#00A0E9] font-semibold mt-2">透光率 50%</p>
+                <p className="text-[#F8B195] font-semibold mt-2">透光率 50%</p>
               </div>
             </div>
 
@@ -289,7 +289,7 @@ export function PhotochromicLenses() {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">戶外陽光</h3>
                 <p className="text-gray-600">完全變深保護</p>
-                <p className="text-[#00A0E9] font-semibold mt-2">透光率 15%</p>
+                <p className="text-[#F8B195] font-semibold mt-2">透光率 15%</p>
               </div>
             </div>
           </div>
@@ -334,8 +334,8 @@ export function PhotochromicLenses() {
                   { name: '標準樹脂', desc: '經濟實惠，光學性能優異' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl">
-                    <div className="w-12 h-12 bg-[#00A0E9]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Shield className="w-6 h-6 text-[#00A0E9]" />
+                    <div className="w-12 h-12 bg-[#F8B195]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-6 h-6 text-[#F8B195]" />
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">{item.name}</p>
@@ -366,7 +366,7 @@ export function PhotochromicLenses() {
               { title: '偏光功能', desc: '減眩光加強版' },
             ].map((item, index) => (
               <div key={index} className="animate-in text-center p-6 bg-white/10 rounded-2xl">
-                <CheckCircle2 className="w-10 h-10 mx-auto mb-4 text-[#00A0E9]" />
+                <CheckCircle2 className="w-10 h-10 mx-auto mb-4 text-[#F8B195]" />
                 <h3 className="text-lg font-bold mb-2">{item.title}</h3>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
@@ -409,7 +409,7 @@ export function PhotochromicLenses() {
                   '藍光防護',
                   '高折射率可選',
                 ],
-                color: 'bg-[#00A0E9] text-white',
+                color: 'bg-[#F8B195] text-white',
                 recommended: true,
               },
               {
@@ -422,15 +422,15 @@ export function PhotochromicLenses() {
                   '偏光功能選項',
                   '最薄材質',
                 ],
-                color: 'bg-gradient-to-br from-[#0055A4] to-[#00A0E9] text-white',
+                color: 'bg-gradient-to-br from-[#355C7D] to-[#F8B195] text-white',
               },
             ].map((series, index) => (
               <div 
                 key={index} 
-                className={`animate-in rounded-2xl p-8 ${series.color} relative ${series.recommended ? 'ring-4 ring-[#E30613]' : ''}`}
+                className={`animate-in rounded-2xl p-8 ${series.color} relative ${series.recommended ? 'ring-4 ring-[#C06C84]' : ''}`}
               >
                 {series.recommended && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#E30613] rounded-full text-sm font-semibold text-white">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#C06C84] rounded-full text-sm font-semibold text-white">
                     推薦選擇
                   </div>
                 )}
@@ -468,8 +468,8 @@ export function PhotochromicLenses() {
               { icon: Umbrella, title: '季節變化', desc: '春夏秋冬皆適用' },
             ].map((item, index) => (
               <div key={index} className="animate-in bg-white rounded-2xl p-6 text-center shadow-sm">
-                <div className="w-14 h-14 bg-[#00A0E9]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-7 h-7 text-[#00A0E9]" />
+                <div className="w-14 h-14 bg-[#F8B195]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-7 h-7 text-[#F8B195]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
@@ -480,7 +480,7 @@ export function PhotochromicLenses() {
       </section>
 
       {/* Warranty */}
-      <section ref={(el) => addToRefs(el, 9)} className="py-20 lg:py-28 bg-[#00A0E9]">
+      <section ref={(el) => addToRefs(el, 9)} className="py-20 lg:py-28 bg-[#F8B195]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <div className="animate-in text-white">
             <Shield className="w-16 h-16 mx-auto mb-6" />
@@ -514,13 +514,13 @@ export function PhotochromicLenses() {
               href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢變色鏡片產品優惠。')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"
             >
               WhatsApp 查詢
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#00A0E9] text-[#00A0E9] font-semibold rounded-xl hover:bg-[#00A0E9] hover:text-white transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#F8B195] text-[#F8B195] font-semibold rounded-xl hover:bg-[#F8B195] hover:text-white transition-all"
             >
               返回首頁
             </a>

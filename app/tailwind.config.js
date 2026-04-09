@@ -60,6 +60,15 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Brand theme palette — sourced from theme.ts
+        brand: {
+          primary: '#355C7D',
+          secondary: '#6C5B7B',
+          accent: '#C06C84',
+          'accent-hover': '#A05068',
+          highlight: '#F8B195',
+          pop: '#F67280',
+        },
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

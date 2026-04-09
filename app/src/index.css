@@ -6,35 +6,37 @@
 
 @layer base {
   :root {
-    /* WiderLens Color System - Professional Blue Theme */
+    /* WiderLens Color System - A Little Rosey Theme */
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 0 0% 18%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 0 0% 18%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 209 100% 32%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 207 40% 35%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 198 100% 46%;
+    --secondary: 288 17% 42%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 20% 96%;
+    --muted: 0 20% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 356 95% 45%;
+    --accent: 343 35% 57%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 356 95% 45%;
+    --destructive: 343 35% 57%;
     --destructive-foreground: 0 0% 100%;
     --border: 210 20% 90%;
     --input: 210 20% 90%;
-    --ring: 209 100% 32%;
+    --ring: 207 40% 35%;
     --radius: 0.5rem;
-    
-    /* Custom WiderLens properties */
-    --wider-blue: #0055A4;
-    --wider-blue-light: #00A0E9;
-    --wider-red: #E30613;
+
+    /* Custom WiderLens properties (theme-aware) */
+    --wider-blue: #355C7D;
+    --wider-blue-light: #6C5B7B;
+    --wider-red: #C06C84;
+    --wider-red-hover: #A05068;
     --wider-gray: #F8F9FA;
-    --wider-dark: #1A1A1A;
+    --wider-dark: #2D2D2D;
     --wider-white: #FFFFFF;
+    --wider-highlight: #F8B195;
 
     /* Animation easings */
     --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,7 +79,7 @@
 @layer components {
   /* Gradient text effect */
   .gradient-text {
-    background: linear-gradient(135deg, var(--wider-blue) 0%, var(--wider-blue-light) 100%);
+    background: linear-gradient(135deg, var(--wider-blue) 0%, var(--wider-highlight) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,10 +91,10 @@
     background-color: var(--wider-red);
     color: white;
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(227, 6, 19, 0.3);
+    box-shadow: 0 4px 20px rgba(192, 108, 132, 0.35);
   }
 
   .btn-secondary {
@@ -101,7 +103,7 @@
     color: var(--wider-blue);
     background: transparent;
   }
-  
+
   .btn-secondary:hover {
     background-color: var(--wider-blue);
     color: white;
@@ -115,7 +117,7 @@
   
   .card-hover:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 85, 164, 0.12);
+    box-shadow: 0 20px 40px rgba(53, 92, 125, 0.12);
   }
 
   /* Section padding */

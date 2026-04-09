@@ -100,7 +100,7 @@ export function Contact() {
                 href={`mailto:${contactConfig.email}`}
                 className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group"
               >
-                <div className="w-14 h-14 bg-[#0055A4] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 bg-[#355C7D] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-7 h-7 text-white" />
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export function Contact() {
               </a>
 
               <div className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-sm">
-                <div className="w-14 h-14 bg-[#00A0E9] rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-14 h-14 bg-[#F8B195] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Clock className="w-7 h-7 text-white" />
                 </div>
                 <div>
@@ -121,14 +121,14 @@ export function Contact() {
             </div>
 
             {/* Quick CTA */}
-            <div className="p-6 bg-gradient-to-br from-[#0055A4] to-[#00A0E9] rounded-2xl text-white">
+            <div className="p-6 bg-gradient-to-br from-[#355C7D] to-[#F8B195] rounded-2xl text-white">
               <h3 className="text-xl font-bold mb-3">需要即時協助？</h3>
               <p className="text-white/80 mb-4">透過 WhatsApp 與我們聯繫，獲得即時回覆</p>
               <a
                 href={`https://wa.me/${contactConfig.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0055A4] font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#355C7D] font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-300"
               >
                 <MessageCircle className="w-5 h-5" />
                 開始對話
@@ -150,7 +150,7 @@ export function Contact() {
                   <p className="text-gray-600 mb-6">我們會盡快與您聯繫</p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-3 bg-[#0055A4] text-white rounded-xl hover:bg-[#004a8c] transition-colors duration-300"
+                    className="px-6 py-3 bg-[#355C7D] text-white rounded-xl hover:bg-[#2A4A63] transition-colors duration-300"
                   >
                     發送新訊息
                   </button>
@@ -167,7 +167,7 @@ export function Contact() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all"
                         placeholder="您的姓名"
                       />
                     </div>
@@ -180,7 +180,7 @@ export function Contact() {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all"
                         placeholder="您的電話號碼"
                       />
                     </div>
@@ -195,7 +195,7 @@ export function Contact() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all"
                         placeholder="您的電郵地址"
                       />
                     </div>
@@ -206,7 +206,7 @@ export function Contact() {
                       <select
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all appearance-none"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all appearance-none"
                       >
                         <option value="">請選擇</option>
                         {inquiryTypes.map((type) => (
@@ -226,7 +226,7 @@ export function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0055A4] focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#355C7D] focus:border-transparent transition-all resize-none"
                       placeholder="請輸入您的訊息..."
                     />
                   </div>
@@ -234,7 +234,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-[#0055A4] text-white font-semibold rounded-xl hover:bg-[#004a8c] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full py-4 bg-[#355C7D] text-white font-semibold rounded-xl hover:bg-[#2A4A63] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
