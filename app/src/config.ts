@@ -210,7 +210,7 @@ export const whyChooseMeConfig: WhyChooseMeConfig = {
   stats: [
     { value: 60, suffix: "+", label: "合作門市" },
     { value: 98, suffix: "%", label: "客戶滿意度" },
-    { value: 15, suffix: "年", label: "專業經驗" },
+    { value: 40, suffix: "年", label: "專業經驗" },
   ],
   featureCards: [
     {

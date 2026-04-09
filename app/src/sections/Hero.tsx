@@ -130,7 +130,7 @@ export function Hero() {
             <img 
               src="/logo.png" 
               alt="WiderLens" 
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </a>
           
@@ -150,7 +150,7 @@ export function Hero() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-[#E30613] text-white text-sm font-semibold rounded-full hover:bg-[#c20510] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30"
+                className="flex items-center gap-2 px-5 py-2.5 bg-[#C94C4C] text-white text-sm font-semibold rounded-full hover:bg-[#a63d3d] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20"
               >
                 <Phone className="w-4 h-4" />
                 WhatsApp 查詢
@@ -203,7 +203,7 @@ export function Hero() {
                 href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-3 bg-[#E30613] text-white font-semibold rounded-full mt-4"
+                className="flex items-center gap-2 px-8 py-3 bg-[#C94C4C] text-white font-semibold rounded-full hover:bg-[#a63d3d] transition-all mt-4"
               >
                 <Phone className="w-5 h-5" />
                 WhatsApp 查詢
@@ -236,7 +236,7 @@ export function Hero() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="#promotion"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E30613] text-white font-semibold rounded-xl hover:bg-[#c20510] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C94C4C] text-white font-semibold rounded-xl hover:bg-[#a63d3d] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-1"
                   >
                     立即領取優惠
                   </a>
@@ -259,7 +259,7 @@ export function Hero() {
                     <div className="text-sm text-white/60">客戶滿意度</div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="text-2xl font-bold">15</div>
+                    <div className="text-2xl font-bold">40</div>
                     <div className="text-sm text-white/60">年專業經驗</div>
                   </div>
                 </div>
