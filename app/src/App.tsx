@@ -32,10 +32,10 @@ function HomePage() {
       <IntroGrid />
 
       {/* Services - Dark Section */}
-      <Services />
+      {/* <Services /> */}
 
       {/* Why Choose Me & Stats - White Section */}
-      <WhyChooseMe />
+      {/* <WhyChooseMe /> */}
 
       {/* Featured Projects - Dark Section */}
       <FeaturedProjects />
