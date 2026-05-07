@@ -99,7 +99,7 @@ export function PhotochromicLenses() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-in order-2 lg:order-1">
               <img 
-                src="/product-photochromic.jpg" 
+                src="/product-3d.jpg" 
                 alt="變色鏡片展示" 
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -494,7 +494,7 @@ export function PhotochromicLenses() {
             <div className="flex flex-wrap justify-center gap-4">
               <span className="px-6 py-3 bg-white/20 rounded-full">變色壽命保證</span>
               <span className="px-6 py-3 bg-white/20 rounded-full">耐用性測試認證</span>
-              <span className="px-6 py-3 bg-white/20 rounded-full">98% 客戶滿意度</span>
+              <span className="px-6 py-3 bg-white/20 rounded-full">98% 夥伴滿意度</span>
             </div>
           </div>
         </div>
@@ -511,7 +511,7 @@ export function PhotochromicLenses() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢變色鏡片產品優惠。')}`}
+              href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想了解變色鏡片批發合作詳情。')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"

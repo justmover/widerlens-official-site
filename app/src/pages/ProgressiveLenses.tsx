@@ -112,7 +112,7 @@ export function ProgressiveLenses() {
             </div>
             <div className="animate-in">
               <img 
-                src="/product-progressive.jpg" 
+                src="/product-4k.jpg" 
                 alt="漸進鏡片展示" 
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -455,7 +455,7 @@ export function ProgressiveLenses() {
             準備好體驗無縫視覺了嗎？
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            立即預約專業驗光，找到最適合您的漸進鏡片
+            立即聯絡我們，了解更多漸進鏡片優惠詳情
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

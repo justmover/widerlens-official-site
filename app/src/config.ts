@@ -10,7 +10,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   language: "zh-HK",
   siteTitle: "WiderLens - 看得更廣，生活更自在",
-  siteDescription: "香港專業驗光配鏡服務，提供高品質漸進鏡片、變色鏡片及完善售後服務。60+合作門市遍佈港九新界。",
+  siteDescription: "香港優質鏡片批發商，提供高品質漸進鏡片、變色鏡片及專業技術支援。服務覆蓋港九新界。",
 };
 
 // Hero Section
@@ -26,15 +26,15 @@ export interface HeroConfig {
 export const heroConfig: HeroConfig = {
   backgroundText: "WiderLens",
   heroImage: "/hero-model.jpg",
-  heroImageAlt: "WiderLens 專業配鏡服務",
+  heroImageAlt: "WiderLens 專業鏡片批發",
   overlayText: "看得更廣，生活更自在",
   brandName: "WiderLens",
   navLinks: [
     { label: "首頁", href: "#hero" },
     { label: "產品", href: "#products" },
-    { label: "優勢", href: "#advantages" },
-    { label: "門市", href: "#stores" },
-    { label: "優惠", href: "#promotion" },
+    // { label: "優勢", href: "#advantages" },
+    { label: "合作夥伴", href: "#stores" },
+    { label: "優惠查詢", href: "#promotion" },
     { label: "聯絡", href: "#contact" },
   ],
 };
@@ -54,15 +54,15 @@ export interface IntroGridConfig {
 }
 
 export const introGridConfig: IntroGridConfig = {
-  titleLine1: "專業鏡片",
-  titleLine2: "解決方案",
-  description: "為您的視覺需求，提供全方位保護。從漸進多焦點鏡片到光致變色鏡片，我們致力於讓每一位客戶都能享受清晰舒適的視覺體驗。",
+  titleLine1: "Wider 漸進變色鏡",
+  titleLine2: "清晰視界，專業品質",
+  description: "德國 Optotech 4K 漸進設計，提供極致清晰、寬廣視野與全天舒適的專業鏡片解決方案。",
   portfolioImages: [
-    { src: "/product-progressive.jpg", alt: "4K 漸進鏡片" },
-    { src: "/product-photochromic.jpg", alt: "光致變色鏡片" },
-    { src: "/product-service.jpg", alt: "專業驗光服務" },
-    { src: "/advantages-model.jpg", alt: "完善售後服務" },
-    { src: "/testimonial-1.jpg", alt: "客戶滿意" },
+    { src: "/product-4k.jpg", alt: "4K 漸進鏡片" },
+    { src: "/product-3d.jpg", alt: "光致變色鏡片" },
+    { src: "/product-wpal.jpg", alt: "專業技術支援" },
+    { src: "/advantages-model.jpg", alt: "完善批發服務" },
+    { src: "/testimonial-1.jpg", alt: "合作夥伴滿意" },
   ],
   accentText: "專業品質 · 值得信賴",
 };
@@ -99,28 +99,31 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
     {
       id: 1,
       title: "Wider 4K Series",
-      category: "4K 數碼漸進-高清系列",
+      category: "4K 數碼高清漸進鏡片",
       year: "2026",
-      image: "/product-progressive.jpg",
-      description: "採用德國 OptoTech 漸進設計技術，提升清晰度並減少周邊像差，視野更闊、更自然。針對遠、中、近三段視野作精細優化，配合亞洲人配戴數據，縮短適應期。",
+      image: "/product-4k.jpg",
+      description:
+        "由德國 Optotech 專業研發，採用 Extended Design 延展設計，以數碼演算優化遠中近區域比例。極高清晰度、寬廣視野與長效舒適，讓遠中近切換更加流暢，全天佩戴自在無負擔。",
       link: "/products/series",
     },
     {
       id: 2,
       title: "Wider 3D-Series",
-      category: "3D 數碼漸進-柔和平衡系列",
+      category: "3D 高清低反漸進鏡片",
       year: "2026",
-      image: "/product-photochromic.jpg",
-      description: "採用先進 3D 光學計算，打造全客製化漸進鏡片。可按個人度數分佈、工作距離及佩戴習慣作優化，配合 LRC 低反光鍍膜，夜間駕駛及看屏幕更舒適。",
+      image: "/product-3d.jpg",
+      description:
+        "結合 3D 自由曲面演算與 LRC 高清低反鍍膜，提供廣闊視野與精準焦點轉換。多段走廊選擇（12 / 14 / 16mm）與多重功能系列，滿足不同生活場景的個性化需求。",
       link: "/products/series",
     },
     {
       id: 3,
       title: "W-Pal 日本漸進",
-      category: "雙面複合設計",
+      category: "W-PAL 雙面複合漸進鏡片",
       year: "2026",
-      image: "/product-service.jpg",
-      description: "承襲日本鏡片設計著重細膩舒適的特色，提供自然柔和的度數過渡。針對日常閱讀、辦公及外出使用，減少不適及視覺疲勞感，適合重視日常穩定實用性的配戴者。",
+      image: "/product-wpal.jpg",
+      description:
+        "日本頂級光學設計結合全球最高折射率 1.76 鏡片，雙面複合漸進設計與 DX Refinement 精修演算法，為亞洲人帶來極致清晰、廣闊且穩定的視覺體驗。",
       link: "/products/series",
     },
   ],
@@ -150,20 +153,20 @@ export const servicesConfig: ServicesConfig = {
   services: [
     {
       iconName: "Layers",
-      title: "4K 數碼漸進-高清系列",
-      description: "高清晰度、廣闊視野、低變形／低搖晃。採用德國 OptoTech 技術，視野更闊更自然。",
+      title: "4K 數碼高清漸進鏡片",
+      description: "德國 Optotech 延展設計，數碼演算優化遠中近區域，極高清晰度與寬廣視野。",
       link: "/products/series",
     },
     {
       iconName: "Eye",
-      title: "3D 數碼漸進-柔和平衡系列",
-      description: "先進 3D 光學計算，全客製化設計。配合 LRC 低反光鍍膜，夜間駕駛及看屏幕更舒適。",
+      title: "3D 高清低反漸進鏡片",
+      description: "3D 自由曲面演算配合 LRC 高清低反鍍膜，廣闊視野、精準焦點轉換，夜間駕駛更舒適。",
       link: "/products/series",
     },
     {
       iconName: "ShieldCheck",
-      title: "W-Pal 日本漸進系列",
-      description: "承襲日本設計細膩舒適特色，自然柔和度數過渡。抗疲勞，日常使用的漸進鏡片。",
+      title: "W-Pal 雙面複合漸進鏡片",
+      description: "日本頂級光學設計，1.76 最高折射率，雙面複合設計帶來極致清晰與穩定視野。",
       link: "/products/series",
     },
     {
@@ -214,22 +217,22 @@ export const whyChooseMeConfig: WhyChooseMeConfig = {
   ],
   featureCards: [
     {
-      image: "/product-service.jpg",
-      imageAlt: "專業驗光",
-      title: "專業驗光",
-      description: "全面眼科檢查，精準度數 + 眼睛健康評估",
+      image: "/product-wpal.jpg",
+      imageAlt: "專業技術支援",
+      title: "專業技術支援",
+      description: "產品培訓、技術諮詢及市場推廣資源",
     },
     {
-      image: "/product-progressive.jpg",
+      image: "/product-4k.jpg",
       imageAlt: "高品質鏡片",
       title: "高品質鏡片",
       description: "國際品牌標準，多款選擇（超薄、防藍、變色）",
     },
   ],
   wideImage: "/advantages-model.jpg",
-  wideImageAlt: "完善售後服務",
-  wideTitle: "完善售後",
-  wideDescription: "免費調整、快速維修，省時省力。我們的服務不止於銷售，更關注您的長期視覺健康。",
+  wideImageAlt: "完善批發服務",
+  wideTitle: "完善批發服務",
+  wideDescription: "穩定供貨、靈活訂單處理及專業培訓支援。我們致力於與合作夥伴共同成長，共創雙贏。",
 };
 
 // Testimonials Section
@@ -326,7 +329,7 @@ export const faqConfig: FAQConfig = {
     {
       id: "1",
       question: "漸進鏡片需要多長時間適應？",
-      answer: "一般來說，適應期約為 1-2 週。我們的 4K 漸進鏡片採用先進設計，能夠大幅縮短適應時間。大多數用戶在 3-5 天內就能完全適應。建議剛開始時多轉動頭部，少用眼睛掃視。",
+      answer: "一般來說，適應期約為 1-2 週。我們的 4K 漸進鏡片採用先進設計，能夠大幅縮短適應時間。大多數配戴者在 3-5 天內就能完全適應。建議剛開始時多轉動頭部，少用眼睛掃視。",
     },
     {
       id: "2",
@@ -392,7 +395,7 @@ export const footerConfig: FooterConfig = {
     { iconName: "Youtube", href: "https://www.youtube.com/@WiderLensHK", label: "YouTube" },
     { iconName: "Mail", href: "mailto:info@wider-lens.com", label: "Email" },
   ],
-  tagline: "看得更廣，生活更自在\n香港專業驗光配鏡服務",
+  tagline: "看得更廣，生活更自在\n香港專業鏡片供應商",
   copyright: "© 2026 WiderLens. 保留所有權利。",
   bottomLinks: [
     { label: "私隱政策", href: "#" },
@@ -447,10 +450,10 @@ export interface StoresConfig {
 }
 
 export const storesConfig: StoresConfig = {
-  title: "合作眼鏡店網絡",
-  subtitle: "遍佈香港各區，找到最近的門市",
+  title: "合作夥伴網絡",
+  subtitle: "遍佈香港各區，攜手共創雙贏",
   searchPlaceholder: "輸入地區或店名...",
-  statsText: "60+ 合作門市，遍佈港島、九龍、新界",
+  statsText: "60+ 合作夥伴，遍佈港島、九龍、新界",
   sheetUrl: "https://docs.google.com/spreadsheets/d/1IkbFAy9-6BY52AiyQbUO5bvKayj8NCV_bhJc4Fs3_t4/export?format=csv&gid=0",
   stores: [
     {

@@ -18,7 +18,8 @@ export function IntroGrid() {
     const ctx = gsap.context(() => {
       // ── Title: mask-reveal per line ──
       const titleWrap = titleLine1Ref.current?.parentElement?.parentElement;
-      if (titleWrap) {
+      if (titleWrap && titleLine1Ref.current && titleLine2Ref.current) {
+        gsap.set([titleLine1Ref.current, titleLine2Ref.current], { yPercent: 110 });
         ScrollTrigger.create({
           trigger: titleWrap,
           start: 'top 85%',
@@ -82,7 +83,6 @@ export function IntroGrid() {
             <div className="overflow-hidden">
               <div
                 ref={titleLine1Ref}
-                className="translate-y-[110%]"
               >
                 <span className="block text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-softblack tracking-tight">
                   {introGridConfig.titleLine1}
@@ -92,7 +92,6 @@ export function IntroGrid() {
             <div className="overflow-hidden">
               <div
                 ref={titleLine2Ref}
-                className="translate-y-[110%]"
               >
                 <span className="block text-3xl md:text-4xl lg:text-5xl font-serif italic font-normal text-softblack/70">
                   {introGridConfig.titleLine2}

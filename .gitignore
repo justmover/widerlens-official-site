@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# raw images
+raw/images
+
 # Build output
 dist/
 dist-ssr/

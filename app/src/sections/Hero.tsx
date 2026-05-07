@@ -220,7 +220,7 @@ export function Hero() {
               <div ref={contentRef} className="text-white order-2 lg:order-1">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  香港專業驗光配鏡
+                  香港專業鏡片供應商
                 </div>
 
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -230,7 +230,7 @@ export function Hero() {
                 </h2>
 
                 <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
-                  香港專業驗光 × 高品質漸進/變色鏡片 × 本地完善售後
+                  高品質漸進鏡片 × 領先技術 x 以客為本
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
