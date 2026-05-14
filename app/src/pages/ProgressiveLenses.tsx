@@ -14,6 +14,7 @@ import {
   Droplets,
   Zap
 } from 'lucide-react';
+import { buildWhatsAppUrl } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 

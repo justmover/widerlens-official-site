@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowLeft,
   CheckCircle2,
-  Sparkles,
   Star,
   Layers,
   Monitor,
@@ -15,7 +14,7 @@ import {
   MessageCircle,
   Eye,
 } from 'lucide-react';
-import { productSeriesList, lrcFeatures, comparisonRows } from '../data/products';
+import { lrcFeatures, comparisonRows } from '../data/products';
 import { buildWhatsAppUrl } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
