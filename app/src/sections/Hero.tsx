@@ -181,18 +181,22 @@ export function Hero() {
                   href={link.href}
                   className="text-white text-xl font-medium"
                   onClick={(e) => {
-                    e.preventDefault();
-                    setMobileMenuOpen(false);
-                    const targetId = link.href.replace('#', '');
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                      const headerOffset = 80;
-                      const elementPosition = targetElement.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
+                    if (link.href.startsWith('#')) {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      const targetId = link.href.replace('#', '');
+                      const targetElement = document.getElementById(targetId);
+                      if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    } else {
+                      setMobileMenuOpen(false);
                     }
                   }}
                 >

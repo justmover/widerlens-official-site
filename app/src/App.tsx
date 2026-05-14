@@ -14,6 +14,7 @@ import { ProgressiveLenses } from './pages/ProgressiveLenses';
 import { PhotochromicLenses } from './pages/PhotochromicLenses';
 import { ProductSeries } from './pages/ProductSeries';
 import { ProductDetail } from './pages/ProductDetail';
+import { AboutUs } from './pages/AboutUs';
 import { siteConfig } from './config';
 import './App.css';
 
@@ -94,6 +95,7 @@ function App() {
         <Route path="/products/photochromic" element={<PhotochromicLenses />} />
         <Route path="/products/series" element={<ProductSeries />} />
         <Route path="/products/:seriesId" element={<ProductDetail />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   );

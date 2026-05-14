@@ -35,6 +35,7 @@ export const heroConfig: HeroConfig = {
     // { label: "優勢", href: "#advantages" },
     { label: "優惠查詢", href: "#promotion" },
     { label: "合作夥伴", href: "#stores" },
+    { label: "關於我們", href: "/about" },
     { label: "聯絡", href: "#contact" },
   ],
 };
