@@ -142,7 +142,7 @@ export function Stores() {
               </div>
 
               <a
-                href={buildWhatsAppUrl(`我想了解與 ${store.name} 的合作詳情。`)}
+                href={buildWhatsAppUrl(`你好，我想了解 ${store.name} 的優惠詳情。`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#355C7D] text-white rounded-xl hover:bg-[#2A4A63] transition-colors duration-300"
