@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { heroConfig } from '../config';
+import { heroConfig, buildWhatsAppUrl } from '../config';
 import { Menu, X, Phone } from 'lucide-react';
 import { useState } from 'react';
 
@@ -147,7 +147,7 @@ export function Hero() {
                 </a>
               ))}
               <a
-                href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
+                href={buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 bg-[#C06C84] text-white text-sm font-semibold rounded-full hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20"
@@ -200,7 +200,7 @@ export function Hero() {
                 </a>
               ))}
               <a
-                href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢WiderLens產品優惠。')}`}
+                href={buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-8 py-3 bg-[#C06C84] text-white font-semibold rounded-full hover:bg-[#A05068] transition-all mt-4"

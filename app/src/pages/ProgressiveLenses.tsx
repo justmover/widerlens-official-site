@@ -459,7 +459,7 @@ export function ProgressiveLenses() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想查詢漸進鏡片產品優惠。')}`}
+              href={buildWhatsAppUrl('你好，我想了解漸進鏡片批發合作詳情。')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"

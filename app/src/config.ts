@@ -423,9 +423,9 @@ export const promotionConfig: PromotionConfig = {
   ],
   countdownLabel: "優惠倒數",
   ctaText: "立即領取優惠",
-  ctaHref: "https://wa.me/85284332216",
+  ctaHref: "https://api.whatsapp.com/send?phone=85284332216",
   secondaryCtaText: "WhatsApp 查詢",
-  secondaryCtaHref: "https://wa.me/85284332216",
+  secondaryCtaHref: "https://api.whatsapp.com/send?phone=85284332216",
 };
 
 // Stores Section Config
@@ -502,3 +502,12 @@ export const contactConfig: ContactConfig = {
   formTitle: "發送訊息",
   submitText: "發送訊息",
 };
+
+// WhatsApp Link Helper
+export const whatsappPhone = "85284332216";
+export const whatsappDefaultText = "你好，我想了解WiderLens批發合作詳情。";
+
+export function buildWhatsAppUrl(text?: string): string {
+  const message = encodeURIComponent(text || whatsappDefaultText);
+  return `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${message}`;
+}

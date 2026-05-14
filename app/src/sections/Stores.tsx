@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { storesConfig } from '../config';
+import { storesConfig, buildWhatsAppUrl } from '../config';
 import { useStores } from '../hooks/useStores';
 import { MapPin, Phone, Clock, Search, ExternalLink } from 'lucide-react';
 
@@ -142,7 +142,7 @@ export function Stores() {
               </div>
 
               <a
-                href={`https://wa.me/85284332216?text=${encodeURIComponent(`我想到 ${store.name} 了解 Wider 產品優惠。`)}`}
+                href={buildWhatsAppUrl(`我想了解與 ${store.name} 的合作詳情。`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#355C7D] text-white rounded-xl hover:bg-[#2A4A63] transition-colors duration-300"

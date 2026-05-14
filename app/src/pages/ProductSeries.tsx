@@ -8,6 +8,7 @@ import {
   Star,
 } from 'lucide-react';
 import { productSeriesList, functionsList, lrcFeatures, comparisonRows } from '../data/products';
+import { buildWhatsAppUrl } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -169,9 +170,7 @@ export function ProductSeries() {
               </div>
 
               <a
-                href={`https://wa.me/85284332216?text=${encodeURIComponent(
-                  `你好，我想了解${activeProduct.name}批發合作詳情。`
-                )}`}
+                href={buildWhatsAppUrl(`你好，我想了解${activeProduct.name}批發合作詳情。`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"
@@ -438,7 +437,7 @@ export function ProductSeries() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/85284332216?text=${encodeURIComponent('你好，我想了解WiderLens批發合作詳情。')}`}
+              href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#355C7D] font-semibold rounded-xl hover:bg-gray-100 transition-all"
