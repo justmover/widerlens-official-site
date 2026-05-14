@@ -15,6 +15,8 @@ import { PhotochromicLenses } from './pages/PhotochromicLenses';
 import { ProductSeries } from './pages/ProductSeries';
 import { ProductDetail } from './pages/ProductDetail';
 import { AboutUs } from './pages/AboutUs';
+import { JoinUs } from './pages/JoinUs';
+import { PromotionTerms } from './pages/PromotionTerms';
 import { siteConfig } from './config';
 import './App.css';
 
@@ -96,6 +98,8 @@ function App() {
         <Route path="/products/series" element={<ProductSeries />} />
         <Route path="/products/:seriesId" element={<ProductDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/join" element={<JoinUs />} />
+        <Route path="/promotion/terms" element={<PromotionTerms />} />
       </Routes>
     </BrowserRouter>
   );

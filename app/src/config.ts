@@ -36,6 +36,7 @@ export const heroConfig: HeroConfig = {
     { label: "優惠查詢", href: "#promotion" },
     { label: "合作夥伴", href: "#stores" },
     { label: "關於我們", href: "/about" },
+    { label: "加盟我們", href: "/join" },
     { label: "聯絡", href: "#contact" },
   ],
 };
@@ -409,11 +410,6 @@ export interface PromotionConfig {
   title: string;
   subtitle: string;
   offers: string[];
-  countdownLabel: string;
-  ctaText: string;
-  ctaHref: string;
-  secondaryCtaText: string;
-  secondaryCtaHref: string;
 }
 
 export const promotionConfig: PromotionConfig = {
@@ -422,11 +418,6 @@ export const promotionConfig: PromotionConfig = {
   offers: [
     "選購wider漸進鏡片一對，送1.6防藍光纖維片一對",
   ],
-  countdownLabel: "優惠倒數",
-  ctaText: "立即領取優惠",
-  ctaHref: "https://api.whatsapp.com/send?phone=85284332216",
-  secondaryCtaText: "WhatsApp 查詢",
-  secondaryCtaHref: "https://api.whatsapp.com/send?phone=85284332216",
 };
 
 // Stores Section Config
