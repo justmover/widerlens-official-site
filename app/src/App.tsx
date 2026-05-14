@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useLenis } from './hooks/useLenis';
 import { Hero } from './sections/Hero';
-import { IntroGrid } from './sections/IntroGrid';
-import { FeaturedProjects } from './sections/FeaturedProjects';
+import { Featured } from './sections/Featured';
+import { Products } from './sections/Products';
 import { Testimonials } from './sections/Testimonials';
 import { Promotion } from './sections/Promotion';
 import { Stores } from './sections/Stores';
@@ -13,6 +13,7 @@ import { Footer } from './sections/Footer';
 import { ProgressiveLenses } from './pages/ProgressiveLenses';
 import { PhotochromicLenses } from './pages/PhotochromicLenses';
 import { ProductSeries } from './pages/ProductSeries';
+import { ProductDetail } from './pages/ProductDetail';
 import { siteConfig } from './config';
 import './App.css';
 
@@ -26,8 +27,8 @@ function HomePage() {
       {/* Hero Section - Parallax Layering */}
       <Hero />
 
-      {/* Intro & Masonry Grid - White Section */}
-      <IntroGrid />
+      {/* Products Section - Dark Section */}
+      <Products />
 
       {/* Services - Dark Section */}
       {/* <Services /> */}
@@ -35,8 +36,8 @@ function HomePage() {
       {/* Why Choose Me & Stats - White Section */}
       {/* <WhyChooseMe /> */}
 
-      {/* Featured Projects - Dark Section */}
-      <FeaturedProjects />
+      {/* Featured Section - White Section */}
+      <Featured />
 
       {/* Testimonials Carousel - White Section */}
       <Testimonials />
@@ -92,6 +93,7 @@ function App() {
         <Route path="/products/progressive" element={<ProgressiveLenses />} />
         <Route path="/products/photochromic" element={<PhotochromicLenses />} />
         <Route path="/products/series" element={<ProductSeries />} />
+        <Route path="/products/:seriesId" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );

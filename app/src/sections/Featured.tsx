@@ -1,18 +1,18 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { introGridConfig } from '../config';
+import { featuredConfig } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function IntroGrid() {
+export function Featured() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleLine1Ref = useRef<HTMLDivElement>(null);
   const titleLine2Ref = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
 
-  if (!introGridConfig.titleLine1 && !introGridConfig.titleLine2) return null;
+  if (!featuredConfig.titleLine1 && !featuredConfig.titleLine2) return null;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -73,7 +73,7 @@ export function IntroGrid() {
   return (
     <section
       ref={sectionRef}
-      id="products"
+      id="featured"
       className="relative w-full py-24 md:py-32 bg-white"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -85,7 +85,7 @@ export function IntroGrid() {
                 ref={titleLine1Ref}
               >
                 <span className="block text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-softblack tracking-tight">
-                  {introGridConfig.titleLine1}
+                  {featuredConfig.titleLine1}
                 </span>
               </div>
             </div>
@@ -94,7 +94,7 @@ export function IntroGrid() {
                 ref={titleLine2Ref}
               >
                 <span className="block text-3xl md:text-4xl lg:text-5xl font-serif italic font-normal text-softblack/70">
-                  {introGridConfig.titleLine2}
+                  {featuredConfig.titleLine2}
                 </span>
               </div>
             </div>
@@ -104,7 +104,7 @@ export function IntroGrid() {
             ref={textRef}
             className="text-base md:text-lg text-softblack/60 font-body leading-relaxed opacity-0"
           >
-            {introGridConfig.description}
+            {featuredConfig.description}
           </p>
         </div>
 
@@ -122,10 +122,10 @@ export function IntroGrid() {
         </div>
 
         {/* Floating accent text */}
-        {introGridConfig.accentText && (
+        {featuredConfig.accentText && (
           <div className="mt-12 md:mt-16 flex justify-end">
             <p className="text-sm text-softblack/40 font-body tracking-wider uppercase">
-              {introGridConfig.accentText}
+              {featuredConfig.accentText}
             </p>
           </div>
         )}

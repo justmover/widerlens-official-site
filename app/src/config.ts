@@ -33,19 +33,19 @@ export const heroConfig: HeroConfig = {
     { label: "首頁", href: "#hero" },
     { label: "產品", href: "#products" },
     // { label: "優勢", href: "#advantages" },
-    { label: "合作夥伴", href: "#stores" },
     { label: "優惠查詢", href: "#promotion" },
+    { label: "合作夥伴", href: "#stores" },
     { label: "聯絡", href: "#contact" },
   ],
 };
 
-// Intro Grid Section - Product Highlights
+// Featured Section - Product Highlights
 export interface PortfolioImage {
   src: string;
   alt: string;
 }
 
-export interface IntroGridConfig {
+export interface FeaturedConfig {
   titleLine1: string;
   titleLine2: string;
   description: string;
@@ -53,7 +53,7 @@ export interface IntroGridConfig {
   accentText: string;
 }
 
-export const introGridConfig: IntroGridConfig = {
+export const featuredConfig: FeaturedConfig = {
   titleLine1: "Wider 漸進變色鏡",
   titleLine2: "清晰視界，專業品質",
   description: "德國 Optotech 4K 漸進設計，提供極致清晰、寬廣視野與全天舒適的專業鏡片解決方案。",
@@ -67,8 +67,8 @@ export const introGridConfig: IntroGridConfig = {
   accentText: "專業品質 · 值得信賴",
 };
 
-// Featured Projects Section - Product Showcase
-export interface Project {
+// Products Section - Product Showcase
+export interface Product {
   id: number;
   title: string;
   category: string;
@@ -78,17 +78,17 @@ export interface Project {
   link?: string;
 }
 
-export interface FeaturedProjectsConfig {
+export interface ProductsConfig {
   subtitle: string;
   titleRegular: string;
   titleItalic: string;
   viewAllText: string;
   viewAllHref: string;
   viewProjectText: string;
-  projects: Project[];
+  projects: Product[];
 }
 
-export const featuredProjectsConfig: FeaturedProjectsConfig = {
+export const productsConfig: ProductsConfig = {
   subtitle: "產品系列",
   titleRegular: "精選",
   titleItalic: "產品",
@@ -104,7 +104,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       image: "/product-4k.jpg",
       description:
         "由德國 Optotech 專業研發，採用 Extended Design 延展設計，以數碼演算優化遠中近區域比例。極高清晰度、寬廣視野與長效舒適，讓遠中近切換更加流暢，全天佩戴自在無負擔。",
-      link: "/products/series",
+      link: "/products/4k",
     },
     {
       id: 2,
@@ -114,7 +114,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       image: "/product-3d.jpg",
       description:
         "結合 3D 自由曲面演算與 LRC 高清低反鍍膜，提供廣闊視野與精準焦點轉換。多段走廊選擇（12 / 14 / 16mm）與多重功能系列，滿足不同生活場景的個性化需求。",
-      link: "/products/series",
+      link: "/products/3d",
     },
     {
       id: 3,
@@ -124,7 +124,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       image: "/product-wpal.jpg",
       description:
         "日本頂級光學設計結合全球最高折射率 1.76 鏡片，雙面複合漸進設計與 DX Refinement 精修演算法，為亞洲人帶來極致清晰、廣闊且穩定的視覺體驗。",
-      link: "/products/series",
+      link: "/products/wpal",
     },
   ],
 };
@@ -379,14 +379,13 @@ export const footerConfig: FooterConfig = {
   logoText: "WiderLens",
   contactLabel: "聯絡我們",
   email: "info@wider-lens.com",
-  locationText: "香港各區合作門市\n遍佈港島、九龍、新界",
+  locationText: "香港總部\n業務覆蓋港島、九龍、新界",
   navigationLabel: "導航",
   navLinks: [
     { label: "首頁", href: "#hero" },
     { label: "產品", href: "#products" },
-    { label: "優勢", href: "#advantages" },
-    { label: "門市", href: "#stores" },
-    { label: "優惠", href: "#promotion" },
+    { label: "優惠查詢", href: "#promotion" },
+    { label: "合作夥伴", href: "#stores" },
     { label: "聯絡", href: "#contact" },
   ],
   socialLabel: "關注我們",

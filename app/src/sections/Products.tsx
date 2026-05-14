@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import { featuredProjectsConfig } from '../config';
+import { productsConfig } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FeaturedProjects() {
+export function Products() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -55,7 +55,7 @@ export function FeaturedProjects() {
     return () => ctx.revert();
   }, []);
 
-  if (!featuredProjectsConfig.titleRegular && featuredProjectsConfig.projects.length === 0) return null;
+  if (!productsConfig.titleRegular && productsConfig.projects.length === 0) return null;
 
   return (
     <section
@@ -67,24 +67,24 @@ export function FeaturedProjects() {
         {/* Section Header */}
         <div ref={headerRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 md:mb-20 opacity-0">
           <div>
-            {featuredProjectsConfig.subtitle && (
+            {productsConfig.subtitle && (
               <p className="text-white/50 text-sm font-body uppercase tracking-widest mb-4">
-                {featuredProjectsConfig.subtitle}
+                {productsConfig.subtitle}
               </p>
             )}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-white tracking-tight">
-              {featuredProjectsConfig.titleRegular}{' '}
+              {productsConfig.titleRegular}{' '}
               <span className="font-serif italic font-normal text-white/80">
-                {featuredProjectsConfig.titleItalic}
+                {productsConfig.titleItalic}
               </span>
             </h2>
           </div>
-          {featuredProjectsConfig.viewAllText && (
+          {productsConfig.viewAllText && (
             <a
-              href={featuredProjectsConfig.viewAllHref || '#contact'}
+              href={productsConfig.viewAllHref || '#contact'}
               className="mt-6 md:mt-0 inline-flex items-center gap-2 text-white/70 hover:text-white font-body text-sm transition-colors duration-300 group"
             >
-              {featuredProjectsConfig.viewAllText}
+              {productsConfig.viewAllText}
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </a>
           )}
@@ -92,7 +92,7 @@ export function FeaturedProjects() {
 
         {/* Products Grid */}
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjectsConfig.projects.map((project) => (
+          {productsConfig.projects.map((project) => (
             <div
               key={project.id}
               className="product-card group opacity-0"
@@ -131,7 +131,7 @@ export function FeaturedProjects() {
                     {project.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-white/80 hover:text-white font-body text-sm transition-colors duration-300 group/link">
-                    {featuredProjectsConfig.viewProjectText}
+                    {productsConfig.viewProjectText}
                     <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
                   </span>
                 </div>
