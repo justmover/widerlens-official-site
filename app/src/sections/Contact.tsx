@@ -27,7 +27,7 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const text = `你好，我想了解WiderLens批發合作詳情。\n\n姓名：${formData.name}\n電話：${formData.phone}\n電郵：${formData.email || '未提供'}\n查詢類型：${formData.inquiryType || '未選擇'}\n訊息：${formData.message || '未填寫'}`;
+    const text = `你好，我想了解WiderLens産品詳情。\n\n姓名：${formData.name}\n電話：${formData.phone}\n電郵：${formData.email || '未提供'}\n查詢類型：${formData.inquiryType || '未選擇'}\n訊息：${formData.message || '未填寫'}`;
     const url = buildWhatsAppUrl(text);
 
     window.open(url, '_blank');

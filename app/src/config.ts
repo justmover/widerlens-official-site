@@ -417,7 +417,7 @@ export interface PromotionConfig {
 
 export const promotionConfig: PromotionConfig = {
   title: "限時優惠活動",
-  subtitle: "2026 春季特別優惠",
+  subtitle: "2026 特別優惠",
   offers: [
     "選購wider漸進鏡片一對，送1.6防藍光纖維片一對",
   ],
@@ -505,7 +505,7 @@ export const contactConfig: ContactConfig = {
 
 // WhatsApp Link Helper
 export const whatsappPhone = "85284332216";
-export const whatsappDefaultText = "你好，我想了解WiderLens批發合作詳情。";
+export const whatsappDefaultText = "你好，我想了解WiderLens産品詳情。";
 
 export function buildWhatsAppUrl(text?: string): string {
   const message = encodeURIComponent(text || whatsappDefaultText);

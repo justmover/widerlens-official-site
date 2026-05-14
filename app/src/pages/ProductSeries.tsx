@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -6,22 +7,25 @@ import {
   CheckCircle2,
   Sparkles,
   Star,
+  Layers,
+  Monitor,
+  Sun,
+  BatteryCharging,
+  Route,
+  MessageCircle,
+  Eye,
 } from 'lucide-react';
-import { productSeriesList, functionsList, lrcFeatures, comparisonRows } from '../data/products';
+import { productSeriesList, lrcFeatures, comparisonRows } from '../data/products';
 import { buildWhatsAppUrl } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProductSeries() {
-  const [activeTab, setActiveTab] = useState<string>('4k');
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const heroRef = useRef<HTMLElement>(null);
 
-  const activeProduct = productSeriesList.find((p) => p.id === activeTab) || productSeriesList[0];
-
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animation
       const heroElements = heroRef.current?.querySelectorAll('.hero-animate');
       if (heroElements && heroElements.length > 0) {
         gsap.fromTo(
@@ -37,7 +41,6 @@ export function ProductSeries() {
         );
       }
 
-      // Section animations
       sectionRefs.current.forEach((section) => {
         if (section) {
           const animateElements = section.querySelectorAll('.animate-in');
@@ -99,209 +102,167 @@ export function ProductSeries() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="hero-animate text-white text-center">
             <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-6">
-              WiderLens 產品系列
+              WiderLens 產品系統和分類
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               專業鏡片產品線
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              三大漸進系列 + UV PLUS 濾藍光鏡片，滿足不同視覺需求
+              鏡片的產品系統和分類是根據不同的設計和功能來區分的。每個系列的鏡片都具有獨特的特性和優勢，以滿足不同需求。
             </p>
           </div>
-
-          {/* Product Tabs */}
-          <div className="hero-animate mt-12 flex flex-wrap justify-center gap-3">
-            {productSeriesList.map((product) => (
-              <button
-                key={product.id}
-                onClick={() => setActiveTab(product.id)}
-                className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeTab === product.id
-                    ? 'bg-white text-[#355C7D] shadow-lg'
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                }`}
-              >
-                {product.name}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Active Product Detail */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative">
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${activeProduct.color} rounded-3xl opacity-20 blur-3xl transform scale-110`}
-              />
-              <img
-                src={activeProduct.image}
-                alt={activeProduct.name}
-                className="relative rounded-3xl shadow-2xl w-full object-cover aspect-[4/3]"
-              />
-              <div
-                className={`absolute top-4 left-4 ${activeProduct.badgeColor} text-white px-4 py-2 rounded-full text-sm font-semibold`}
-              >
-                {activeProduct.subtitle}
-              </div>
-            </div>
-
-            {/* Content */}
-            <div>
-              <p className="text-[#355C7D] font-semibold mb-2">{activeProduct.tagline}</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                {activeProduct.name}
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                {activeProduct.description}
-              </p>
-
-              {/* Features */}
-              <div className="space-y-3 mb-8">
-                {activeProduct.features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href={buildWhatsAppUrl(`你好，我想了解${activeProduct.name}批發合作詳情。`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all"
-              >
-                查詢此產品
-              </a>
-            </div>
-          </div>
-
-          {/* Sub-products */}
-          {activeProduct.subProducts.length > 0 && (
-            <div className="mt-20">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                {activeProduct.name} 產品陣容
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {activeProduct.subProducts.map((sub) => (
-                  <div
-                    key={sub.id}
-                    className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="w-12 h-12 bg-[#355C7D]/10 rounded-xl flex items-center justify-center mb-4">
-                      <sub.icon className="w-6 h-6 text-[#355C7D]" />
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">{sub.name}</h4>
-                    <p className="text-sm text-[#355C7D] font-medium mb-2">{sub.tagline}</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">{sub.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Series-specific visuals from raw/images */}
-          {activeTab === '3d' && (
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">時尚色系選擇</h3>
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                <img
-                  src="/raw-images/3d_colors.png"
-                  alt="3D Series 色彩選擇"
-                  className="w-full max-w-2xl mx-auto"
-                />
-                <p className="text-center text-gray-500 mt-4 text-sm">
-                  Grey、Brown、Green、Pink、Purple、Blue 隨心搭配
-                </p>
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'wpal' && (
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">DX Refinement 精修演算法</h3>
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                <img
-                  src="/raw-images/w-pal_dx_refinement.png"
-                  alt="W-Pal DX Refinement"
-                  className="w-full max-w-lg mx-auto"
-                />
-                <p className="text-center text-gray-500 mt-4 text-sm">
-                  根據個人瞳距與配戴角度自動調整，精準匹配視覺路徑
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Specifications */}
-      <section ref={(el) => addToRefs(el, 0)} className="py-20 lg:py-28 bg-gray-50">
+      {/* Product Series Overview */}
+      <section ref={(el) => addToRefs(el, 0)} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="animate-in text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">產品規格</h2>
-            <p className="text-lg text-gray-600">專業參數，滿足不同需求</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">產品系列</h2>
+            <p className="text-lg text-gray-600">各系列的產品特性</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {activeProduct.specs.map((spec, index) => (
-              <div key={index} className="animate-in bg-white rounded-2xl p-6 shadow-sm">
-                <p className="text-sm text-gray-500 mb-2">{spec.label}</p>
-                <p className="text-lg font-semibold text-gray-900">{spec.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technologies */}
-      <section ref={(el) => addToRefs(el, 1)} className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="animate-in text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心技術</h2>
-            <p className="text-lg text-gray-600">先進技術，卓越品質</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {activeProduct.technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="animate-in bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white"
-              >
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4">
-                  <Sparkles className="w-6 h-6" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* 3D Series */}
+            <div className="animate-in group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="/product-3d.jpg"
+                  alt="Wider 3D-Series"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="inline-block px-3 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-full mb-2">
+                    3D 高清低反漸進鏡片
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Wider 3D</h3>
                 </div>
-                <h3 className="text-lg font-bold mb-2">{tech.name}</h3>
-                <p className="text-gray-400 text-sm">{tech.desc}</p>
               </div>
-            ))}
+              <div className="p-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  全新 WIDER OPTO 3D-Series 鏡片是完全著重平衡的鏡片，使配戴者的適應率更快，從而實現最高的視覺舒適度，加上獨有的超低反射鍍膜 LRC 將鏡片的透光率和清晰度大大提升。
+                </p>
+                <Link
+                  to="/products/3d"
+                  className="inline-flex items-center gap-2 text-[#355C7D] font-semibold text-sm hover:underline"
+                >
+                  了解詳情 <ArrowLeft className="w-4 h-4 rotate-180" />
+                </Link>
+              </div>
+            </div>
+
+            {/* 4K Series */}
+            <div className="animate-in group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="/product-4k.jpg"
+                  alt="Wider 4K Series"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full mb-2">
+                    4K 數碼高清漸進鏡片
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Wider 4K</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  4K Series 德國 Optotech 設計的漸進鏡片採用了先進的延展設計（Extended Design），旨在滿足您對視覺體驗的高度期望。提供寬廣的視野，無論近距離還是遠處，都能輕鬆轉換焦點。
+                </p>
+                <Link
+                  to="/products/4k"
+                  className="inline-flex items-center gap-2 text-[#355C7D] font-semibold text-sm hover:underline"
+                >
+                  了解詳情 <ArrowLeft className="w-4 h-4 rotate-180" />
+                </Link>
+              </div>
+            </div>
+
+            {/* W-Pal Series */}
+            <div className="animate-in group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src="/product-wpal.jpg"
+                  alt="W-Pal 日本漸進"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="inline-block px-3 py-1 bg-amber-500 text-white text-xs font-semibold rounded-full mb-2">
+                    W-PAL 雙面複合漸進鏡片
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Wider W-Pal</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  獨特的雙面複合漸進+雙面非球面設計，有效校正鏡片兩側的像差及失真，根據複雜的遠近兩用漸進鏡片的度數變化，修正鏡片兩面的視覺歪曲，減少失真。
+                </p>
+                <ul className="space-y-1 text-sm text-gray-500 mb-4">
+                  <li>• 以亞洲人輪廓為藍本</li>
+                  <li>• 配合佩戴者參考數據</li>
+                  <li>• 雙眼視覺同步</li>
+                  <li>• 提升視覺融象</li>
+                </ul>
+                <Link
+                  to="/products/wpal"
+                  className="inline-flex items-center gap-2 text-[#355C7D] font-semibold text-sm hover:underline"
+                >
+                  了解詳情 <ArrowLeft className="w-4 h-4 rotate-180" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Functions */}
-      <section ref={(el) => addToRefs(el, 2)} className="py-20 lg:py-28 bg-gray-50">
+      {/* Functions Introduction */}
+      <section ref={(el) => addToRefs(el, 1)} className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="animate-in text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">功能介紹</h2>
-            <p className="text-lg text-gray-600">四大鏡片功能，覆蓋全方位生活場景</p>
+            <p className="text-lg text-gray-600">以上系列的產品皆有以下功能，覆蓋全方位生活場景</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {functionsList.map((fn) => (
+            {[
+              {
+                icon: Route,
+                title: '漸進',
+                desc: '漸進鏡片是一種多焦點鏡片，能夠提供從遠距離到近距離的連續視覺過渡。配戴者在觀看不同距離的物體時，不需要更換眼鏡，提供了極大的便利性和舒適度。',
+                visual: '開車、戶外',
+              },
+              {
+                icon: Monitor,
+                title: '室內漸進',
+                desc: '一般漸進鏡片無法提供較寬廣的中距離視野範圍，因此配戴者有時需要仰頭看電腦。室內漸進鏡片能夠提供較寬廣的中近視野區域，減輕眼睛和頸部的壓力。',
+                visual: '辦公室、看電腦、閱讀',
+              },
+              {
+                icon: BatteryCharging,
+                title: '抗疲勞',
+                desc: '抗疲勞鏡片能夠減輕眼睛的調節負擔，從而減少視覺疲勞的發生。這些鏡片具有特殊的設計和技術，可以幫助眼睛更輕鬆地調節焦距，提供更舒適的視覺體驗。',
+                visual: '年輕女士、看手機、閱讀',
+              },
+              {
+                icon: Sun,
+                title: '變色',
+                desc: '變色鏡片能夠根據環境光線的強弱自動調整顏色。戶外時迅速變暗以保護眼睛，室內恢復透明提供清晰視野，非常適合戶外活動和日常使用。',
+                visual: '戶外、開車、運動、型格',
+              },
+            ].map((fn, i) => (
               <div
-                key={fn.id}
+                key={i}
                 className="animate-in bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-12 h-12 bg-[#355C7D]/10 rounded-xl flex items-center justify-center mb-4">
                   <fn.icon className="w-6 h-6 text-[#355C7D]" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{fn.name}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">{fn.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{fn.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">{fn.desc}</p>
                 <p className="text-xs text-gray-400">適用場景：{fn.visual}</p>
               </div>
             ))}
@@ -310,7 +271,7 @@ export function ProductSeries() {
       </section>
 
       {/* LRC Coating */}
-      <section ref={(el) => addToRefs(el, 3)} className="py-20 lg:py-28">
+      <section ref={(el) => addToRefs(el, 2)} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="animate-in grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -360,6 +321,86 @@ export function ProductSeries() {
         </div>
       </section>
 
+      {/* Highlighted Products */}
+      <section ref={(el) => addToRefs(el, 3)} className="py-20 lg:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="animate-in text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">重點推廣系列</h2>
+          </div>
+
+          <div className="space-y-8">
+            {/* 3D Anti-fatigue */}
+            <div className="animate-in bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <BatteryCharging className="w-7 h-7 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Wider 3D 高清數碼漸進抗疲勞</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Wider 3D 抗疲勞鏡是專為長時間看近物的年輕人所設計。加上 LRC 鍍膜可以過濾手機屏幕眩光閃爍，增加視覺清晰度，舒緩睫狀肌疲勞。由於抗疲勞鏡片的加光度不高，因此變形區非常輕微，一般使用時不易察覺。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 3D Office */}
+            <div className="animate-in bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Monitor className="w-7 h-7 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Wider 3D-Office 室內漸進系列</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    3D-Office 室內鏡片結合了智能加工技術（SMART ADD），提高佩戴者使用電子設備時的視覺效果。辦公室鏡片提供了4種視覺範圍，覆蓋了客戶的需求，為佩戴者提供清晰的視覺效果（電話/平板電腦/電腦等等）。
+                  </p>
+                  <p className="text-sm text-gray-500 font-medium">適合佩戴人士：</p>
+                  <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                    <li>• 適合長時間使用電腦和處理文書的人士，尤其在金融業等職業</li>
+                    <li>• 適合需要大量使用電腦、閱讀或進行文書工作長時間在辦公室工作人士</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Photochange */}
+            <div className="animate-in bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Sun className="w-7 h-7 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Wider Photochange 變色系列</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    Wider Photochange 變色鏡片提供了多種顏色選擇，滿足不同消費者的需求。Photochange 變色 S3 系列提供灰色和茶色選擇，適合喜歡經典和自然風格的消費者；而 Photochange 變色系列則提供綠色、藍色、紫色和粉紅色選擇，適合喜歡鮮豔和個性化風格的消費者。
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">Photochange S3（灰 / 茶）</span>
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">Photochange（綠 / 藍 / 紫 / 粉紅）</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4K Office */}
+            <div className="animate-in bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-7 h-7 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Wider 4K-Office 室內漸進系列</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    一般漸進鏡片無法提供較寬廣的中距離視野範圍，因此配戴者有時需要仰頭看電腦，容易使眼睛和頸部感到疲勞。然而，室內漸進鏡片能夠提供較寬廣的中近視野區域，使配戴者擁有更大的角度來看電腦，同時減輕眼睛和頸部的壓力。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section ref={(el) => addToRefs(el, 4)} className="py-20 lg:py-28 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -368,7 +409,7 @@ export function ProductSeries() {
             <p className="text-lg text-gray-400">選擇最適合您的漸進鏡片</p>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="animate-in overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-white/10">
@@ -433,7 +474,7 @@ export function ProductSeries() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">找到適合您的鏡片了嗎？</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            立即聯繫我們，獲得專業建議和個性化報價
+            立即聯繫我們，獲得專業建議和批發報價
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -442,6 +483,7 @@ export function ProductSeries() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#355C7D] font-semibold rounded-xl hover:bg-gray-100 transition-all"
             >
+              <MessageCircle className="w-5 h-5" />
               WhatsApp 查詢
             </a>
             <a
