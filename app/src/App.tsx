@@ -17,6 +17,8 @@ import { ProductDetail } from './pages/ProductDetail';
 import { AboutUs } from './pages/AboutUs';
 import { JoinUs } from './pages/JoinUs';
 import { PromotionTerms } from './pages/PromotionTerms';
+import { BlogList } from './pages/BlogList';
+import { BlogArticle } from './pages/BlogArticle';
 import { siteConfig } from './config';
 import './App.css';
 
@@ -100,6 +102,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/join" element={<JoinUs />} />
         <Route path="/promotion/terms" element={<PromotionTerms />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
       </Routes>
     </BrowserRouter>
   );

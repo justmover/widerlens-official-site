@@ -37,6 +37,7 @@ export const heroConfig: HeroConfig = {
     { label: "合作夥伴", href: "#stores" },
     { label: "關於我們", href: "/about" },
     { label: "加盟我們", href: "/join" },
+    { label: "視光知識", href: "/blog" },
     { label: "聯絡", href: "#contact" },
   ],
 };
@@ -388,6 +389,7 @@ export const footerConfig: FooterConfig = {
     { label: "產品", href: "#products" },
     { label: "優惠查詢", href: "#promotion" },
     { label: "合作夥伴", href: "#stores" },
+    { label: "視光知識", href: "/blog" },
     { label: "聯絡", href: "#contact" },
   ],
   socialLabel: "關注我們",
