@@ -1,4 +1,4 @@
-import { ArrowLeft, Eye, ArrowRight } from 'lucide-react';
+import { Eye, ArrowRight } from 'lucide-react';
 import { buildWhatsAppUrl } from '../../config';
 
 export function ProgressiveLensArticle() {
