@@ -449,32 +449,7 @@ export const storesConfig: StoresConfig = {
   searchPlaceholder: "輸入地區或店名...",
   statsText: "60+ 合作夥伴，遍佈港島、九龍、新界",
   sheetUrl: "https://docs.google.com/spreadsheets/d/1IkbFAy9-6BY52AiyQbUO5bvKayj8NCV_bhJc4Fs3_t4/export?format=csv&gid=0",
-  stores: [
-    {
-      id: 1,
-      name: "眼鏡 88 (銅鑼灣店)",
-      address: "銅鑼灣怡和街 1 號",
-      phone: "1234 5678",
-      hours: "10:00 - 21:00",
-      district: "港島",
-    },
-    {
-      id: 2,
-      name: "視光中心 (旺角店)",
-      address: "旺角彌敦道 100 號",
-      phone: "2345 6789",
-      hours: "09:30 - 21:30",
-      district: "九龍",
-    },
-    {
-      id: 3,
-      name: "眼鏡城 (沙田店)",
-      address: "沙田正街 10 號",
-      phone: "3456 7890",
-      hours: "10:00 - 22:00",
-      district: "新界",
-    },
-  ],
+  stores: [],
 };
 
 // Contact Section Config
