@@ -86,11 +86,10 @@ export function Stores() {
               <button
                 key={district}
                 onClick={() => setSelectedDistrict(district)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  selectedDistrict === district
-                    ? 'bg-[#355C7D] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedDistrict === district
+                  ? 'bg-[#355C7D] text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
               >
                 {district}
               </button>
@@ -117,7 +116,7 @@ export function Stores() {
           {!loading && filteredStores.map((store) => (
             <div
               key={store.id}
-              className="group p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-transparent hover:border-[#355C7D]/20"
+              className="group flex flex-col justify-between p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 border border-transparent hover:border-[#355C7D]/20"
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-bold text-gray-900">{store.name}</h3>
@@ -135,7 +134,7 @@ export function Stores() {
               </div>
 
               <a
-                href={buildWhatsAppUrl(`你好，我想了解 ${store.name} 的優惠詳情。`)}
+                href={buildWhatsAppUrl(`你好，我想了解 ${store.name} (${store.storeCode}) 的優惠詳情。`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-2 w-full py-3 bg-[#355C7D] text-white rounded-xl hover:bg-[#2A4A63] transition-colors duration-300"

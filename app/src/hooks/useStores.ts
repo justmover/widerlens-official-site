@@ -75,7 +75,8 @@ export function useStores() {
             const address = row.address || row.地址 || '';
             const district = row.district || row.地區 || inferDistrict(address);
             return {
-              id: Number(row.id || row.店鋪編號) || index + 1,
+              id: Number(row.id) || index + 1,
+              storeCode: row.storeCode || row.店鋪編號 || '',
               name: row.name || row.名稱 || '',
               address,
               phone: row.phone || row.電話 || '',

@@ -426,6 +426,7 @@ export const promotionConfig: PromotionConfig = {
 export interface Store {
   id: number;
   name: string;
+  storeCode: string;
   address: string;
   phone: string;
   hours: string;
