@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const modelRef = useRef<HTMLDivElement>(null);
   const overlayTextRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,20 +48,6 @@ export function Hero() {
         },
       });
       triggers.push(textTrigger);
-
-      // Parallax effect for model (slower movement = appears closer)
-      const modelTrigger = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-        onUpdate: (self) => {
-          if (modelRef.current) {
-            gsap.set(modelRef.current, { yPercent: self.progress * 20 });
-          }
-        },
-      });
-      triggers.push(modelTrigger);
 
       // Fade out overlay text faster
       const overlayTrigger = ScrollTrigger.create({
@@ -127,13 +112,13 @@ export function Hero() {
         <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 flex items-center justify-between transition-all duration-300 bg-gradient-to-b from-black/30 to-transparent">
           {/* Logo */}
           <a href="#hero" className="flex items-center">
-            <img 
-              src="/logo.png" 
-              alt="WiderLens" 
+            <img
+              src="/logo.png"
+              alt="WiderLens"
               className="h-16 w-auto object-contain"
             />
           </a>
-          
+
           {/* Desktop Navigation */}
           {heroConfig.navLinks.length > 0 && (
             <div className="hidden lg:flex items-center gap-8">
@@ -169,7 +154,7 @@ export function Hero() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div 
+          <div
             className="fixed inset-0 z-40 bg-[#355C7D] lg:hidden pt-20"
             data-mobile-menu="true"
             data-open={mobileMenuOpen}
@@ -219,25 +204,23 @@ export function Hero() {
         {/* Hero Content */}
         <div className="flex-1 flex items-center">
           <div className="container-wide w-full">
-            <div className="grid lg:grid-cols-2 gap-12 items-center pt-24 lg:pt-0">
+            <div className="flex flex-col items-center justify-center pt-24 lg:pt-0">
               {/* Left: Text Content */}
-              <div ref={contentRef} className="text-white order-2 lg:order-1">
+              <div ref={contentRef} className="text-white text-center flex flex-col items-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   香港專業鏡片供應商
                 </div>
 
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  看得更廣，
-                  <br />
-                  <span className="text-[#F8B195]">生活更自在</span>
+                  看得更廣，<span className="text-[#F8B195]">生活更自在</span>
                 </h2>
 
                 <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
                   高品質漸進鏡片 × 領先技術 x 以客為本
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="#promotion"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-1"
@@ -253,7 +236,7 @@ export function Hero() {
                 </div>
 
                 {/* Trust badges */}
-                <div className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-white/10">
+                <div className="flex flex-wrap items-center justify-center gap-6 mt-10 pt-8 border-t border-white/10">
                   <div className="flex items-center gap-2">
                     <div className="text-2xl font-bold">60+</div>
                     <div className="text-sm text-white/60">合作門市</div>
@@ -269,24 +252,7 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Right: Hero Image */}
-              {heroConfig.heroImage && (
-                <div
-                  ref={modelRef}
-                  className="relative order-1 lg:order-2 flex justify-center lg:justify-end will-change-transform"
-                >
-                  <div className="relative w-[80%] md:w-[60%] lg:w-full max-w-[500px]">
-                    {/* Glow effect behind image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#F8B195]/30 to-transparent rounded-3xl blur-2xl transform scale-110" />
-                    <img
-                      src={heroConfig.heroImage}
-                      alt={heroConfig.heroImageAlt}
-                      className="relative w-full h-auto object-contain rounded-3xl"
-                      loading="eager"
-                    />
-                  </div>
-                </div>
-              )}
+
             </div>
           </div>
         </div>

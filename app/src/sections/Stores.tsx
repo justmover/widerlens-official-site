@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { storesConfig, buildWhatsAppUrl } from '../config';
 import { useStores } from '../hooks/useStores';
-import { MapPin, Phone, Clock, Search, ExternalLink } from 'lucide-react';
+import { MapPin, Search, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,14 +131,7 @@ export function Stores() {
                   <MapPin className="w-5 h-5 text-[#355C7D] flex-shrink-0 mt-0.5" />
                   <span>{store.address}</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
-                  <span>{store.phone}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-[#355C7D] flex-shrink-0" />
-                  <span>{store.hours}</span>
-                </div>
+
               </div>
 
               <a
