@@ -105,7 +105,7 @@ export function Promotion() {
           <div className="flex items-center justify-center">
             <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/promotion_poster.png"
+                src="/promotion_poster.jpg"
                 alt="WiderLens 優惠海報"
                 className="w-full h-auto object-cover"
               />
