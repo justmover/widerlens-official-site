@@ -94,9 +94,9 @@ export function AboutUs() {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  二〇〇五年，快達光學在香港正式成立。那時候，我們只有一個簡單的信念：
+                  一九八七年，快達光學在香港正式成立。那時候，我們只有一個簡單的信念：
                   <strong className="text-gray-900">每一雙眼睛，都值得擁有更寬廣、更清亮的視界。</strong>
-                  將近二十年來，這份信念從未動搖，反而隨着時間沉澱，化作我們對鏡片工藝的極致追求。
+                  近四十年來，這份信念從未動搖，反而隨着時間沉澱，化作我們對鏡片工藝的極致追求。
                 </p>
                 <p>
                   WiderLens —— 快達光學旗下專業鏡片品牌，承載着我們對光學技術的熱誠與對香港市場的深耕。我們不只是一間鏡片供應商，更是一群相信「視覺質素能改變生活」的專業團隊。由德國 Optotech 數碼延展設計，到日本頂級雙面複合漸進技術，我們將全球最先進的光學科技帶進香港，讓每一位配戴者都能「看得更廣，生活更自在」。
@@ -128,15 +128,15 @@ export function AboutUs() {
               <Users className="w-7 h-7 text-[#355C7D]" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              近二十年扎根香港，累積逾四十年專業底蘊
+              近四十年扎根香港，累積深厚專業底蘊
             </h2>
           </div>
           <div className="animate-in grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <div className="text-4xl font-bold text-[#355C7D] mb-2">20</div>
-              <div className="text-sm text-gray-500 mb-4">年扎根香港</div>
+              <div className="text-4xl font-bold text-[#355C7D] mb-2">40</div>
+              <div className="text-sm text-gray-500 mb-4">年近四十年扎根香港</div>
               <p className="text-gray-600 text-sm leading-relaxed">
-                快達光學自2005年在香港成立，親歷鏡片技術從傳統打磨到數碼自由曲面的革命性蛻變。
+                快達光學自1987年在香港成立，親歷鏡片技術從傳統打磨到數碼自由曲面的革命性蛻變。
               </p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-sm">
