@@ -415,10 +415,10 @@ export interface PromotionConfig {
 }
 
 export const promotionConfig: PromotionConfig = {
-  title: "限時優惠活動",
+  title: "限時買一送一優惠",
   subtitle: "2026 特別優惠",
   offers: [
-    "選購wider漸進鏡片一對，送1.6防藍光纖維片一對",
+    "選購 Wider 漸進鏡片一對，送1.6防藍光纖維片一對",
   ],
 };
 
