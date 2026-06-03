@@ -115,10 +115,10 @@ export const productSeriesList: ProductSeriesItem[] = [
         title: '產品比較',
         headers: ['特點', '傳統漸進鏡片', 'WIDER 4K Series'],
         rows: [
-          { label: '清晰度', values: ['中等', '☆☆☆☆☆ 高達4K級細膩畫質'] },
-          { label: '視野寬度', values: ['普通', '☆☆☆☆☆ 延展式寬視野'] },
-          { label: '對焦速度', values: ['一般', '☆☆☆☆☆ 快速自然轉換'] },
-          { label: '舒適度', values: ['一般', '☆☆☆☆☆ 全天舒適體驗'] },
+          { label: '清晰度', values: ['中等', '高達4K級細膩畫質'] },
+          { label: '視野寬度', values: ['普通', '延展式寬視野'] },
+          { label: '對焦速度', values: ['一般', '快速自然轉換'] },
+          { label: '舒適度', values: ['一般', '全天舒適體驗'] },
         ],
       },
     },
@@ -355,8 +355,8 @@ export const lrcFeatures = [
 ];
 
 export const comparisonRows = [
-  { label: '清晰度', generic: '一般', series4k: '☆☆☆☆☆ 高達4K級細膩畫質', series3d: '高清、低反射', seriesWpal: '高精度非球面優化' },
-  { label: '視野寬度', generic: '普通', series4k: '☆☆☆☆☆ 延展式寬視野', series3d: '廣闊視野 + 精準焦點', seriesWpal: '廣闊 + 邊緣穩定' },
+  { label: '清晰度', generic: '一般', series4k: '高達4K級細膩畫質', series3d: '高清、低反射', seriesWpal: '高精度非球面優化' },
+  { label: '視野寬度', generic: '普通', series4k: '延展式寬視野', series3d: '廣闊視野 + 精準焦點', seriesWpal: '廣闊 + 邊緣穩定' },
   { label: '適應性', generic: '需較長時間', series4k: '快速自然', series3d: '快速自然', seriesWpal: '順滑易適應' },
   { label: '鏡面反光', generic: '較明顯', series4k: '低反光', series3d: '接近無反光 (LRC)', seriesWpal: '低反光' },
   { label: '個性化度', generic: '固定設計', series4k: '數碼演算優化', series3d: '3D 自定義自由曲面', seriesWpal: 'DX Refinement 精準匹配' },
