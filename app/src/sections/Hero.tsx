@@ -225,7 +225,7 @@ export function Hero() {
                     href="#promotion"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-900/20 hover:-translate-y-1"
                   >
-                    了解買一送一優惠
+                    領取買一得二優惠碼
                   </a>
                   <a
                     href="#stores"

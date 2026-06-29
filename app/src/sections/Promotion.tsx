@@ -80,13 +80,13 @@ export function Promotion() {
 
             {/* Single CTA */}
             <a
-              href={buildWhatsAppUrl('你好，我想領取最新優惠。')}
+              href={buildWhatsAppUrl('你好，我想領取買一得二優惠碼。')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C06C84] text-white font-semibold rounded-xl hover:bg-[#A05068] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1"
             >
               <Phone className="w-5 h-5" />
-              WhatsApp 領取最新優惠
+              WhatsApp 領取優惠碼
             </a>
 
             {/* Terms link */}
